@@ -1,3 +1,4 @@
+import '../../widgets/responsive_row.dart';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -375,8 +376,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
         children: [
           _buildHeader(),
           Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ResponsiveRow(
               children: [
                 if (isDesktop) _buildLeftSidebar(),
                 Expanded(
@@ -511,8 +511,9 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
           const SizedBox(height: 32),
           const Divider(color: Color(0xFFE2E8F0)),
           const SizedBox(height: 24),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            runSpacing: 16,
             children: [
               if (_currentStep > 0)
                 OutlinedButton(
@@ -547,9 +548,10 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
         color: Colors.white,
         border: Border(bottom: BorderSide(color: Color(0xFFE2E8F0))),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+      child: Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            runSpacing: 16,
+            children: [
           Row(
             children: [
               Container(
@@ -561,7 +563,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                 ),
                 child: const Center(child: Icon(Icons.diamond, color: Color(0xFFC09947))),
               ),
-              const SizedBox(width: 16),
+              
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -632,7 +634,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                   : Text("${index + 1}", style: GoogleFonts.inter(color: isActive ? Colors.white : Colors.grey.shade500, fontWeight: FontWeight.bold)),
             ),
           ),
-          const SizedBox(width: 16),
+          
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -694,8 +696,8 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
           Row(
             children: [
               Icon(icon, color: const Color(0xFFC09947), size: 20),
-              const SizedBox(width: 8),
-              Expanded(child: Text(title, style: GoogleFonts.inter(fontWeight: FontWeight.bold))),
+              
+              Text(title, style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
             ],
           ),
           if (subtitle != null) ...[
@@ -705,14 +707,13 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
           const SizedBox(height: 16),
           ...items.map((item) => Padding(
             padding: const EdgeInsets.only(bottom: 12),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ResponsiveRow(
               children: [
                 const Padding(
                   padding: EdgeInsets.only(top: 4, right: 8),
                   child: Icon(Icons.check_circle_outline, size: 16, color: Colors.green),
                 ),
-                Expanded(child: Text(item, style: GoogleFonts.inter(fontSize: 13, color: Colors.grey.shade700))),
+                Text(item, style: GoogleFonts.inter(fontSize: 13, color: Colors.grey.shade700)),
               ],
             ),
           )),

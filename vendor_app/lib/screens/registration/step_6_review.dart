@@ -1,3 +1,4 @@
+import '../../widgets/responsive_row.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -49,7 +50,7 @@ class Step6Review extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.check_circle, color: Colors.green, size: 16),
-            const SizedBox(width: 8),
+            
             Text("KYC Documents Uploaded", style: GoogleFonts.inter(color: Colors.grey.shade700, fontSize: 14)),
           ],
         ),
@@ -57,7 +58,7 @@ class Step6Review extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.check_circle, color: Colors.green, size: 16),
-            const SizedBox(width: 8),
+            
             Text("Bank Details Provided", style: GoogleFonts.inter(color: Colors.grey.shade700, fontSize: 14)),
           ],
         ),
@@ -70,8 +71,7 @@ class Step6Review extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             border: Border.all(color: Colors.orange.shade200),
           ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ResponsiveRow(
             children: [
               Checkbox(
                 value: termsAccepted,
@@ -104,8 +104,7 @@ class Step6Review extends StatelessWidget {
   Widget _buildReviewRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ResponsiveRow(
         children: [
           SizedBox(
             width: 150,

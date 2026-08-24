@@ -1,3 +1,4 @@
+import '../../widgets/responsive_row.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -58,23 +59,21 @@ class _Step1AccountState extends State<Step1Account> {
           Text("Create your account to get started", style: GoogleFonts.inter(color: Colors.grey.shade600, fontSize: 14)),
           const SizedBox(height: 32),
 
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
-              Expanded(child: _buildTextField("Full Name *", "Enter your full name", widget.fullNameController, Icons.person_outline)),
-              const SizedBox(width: 24),
-              Expanded(child: _buildTextField("Email Address *", "Enter your email address", widget.emailController, Icons.email_outlined, keyboardType: TextInputType.emailAddress)),
+              _buildTextField("Full Name *", "Enter your full name", widget.fullNameController, Icons.person_outline),
+              
+              _buildTextField("Email Address *", "Enter your email address", widget.emailController, Icons.email_outlined, keyboardType: TextInputType.emailAddress),
             ],
           ),
           const SizedBox(height: 24),
           
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
               Expanded(
                 child: _buildTextField("Mobile Number *", "Enter mobile number", widget.mobileController, Icons.phone_outlined, keyboardType: TextInputType.phone, prefixText: "+91 "),
               ),
-              const SizedBox(width: 24),
+              
               Expanded(
                 child: _buildPasswordField("Password *", "Create a strong password", widget.passwordController, _obscurePassword, () => setState(() => _obscurePassword = !_obscurePassword)),
               ),
@@ -82,8 +81,7 @@ class _Step1AccountState extends State<Step1Account> {
           ),
           const SizedBox(height: 24),
           
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
               Expanded(
                 child: Column(
@@ -94,7 +92,7 @@ class _Step1AccountState extends State<Step1Account> {
                   ],
                 ),
               ),
-              const SizedBox(width: 24),
+              
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -219,15 +217,15 @@ class _Step1AccountState extends State<Step1Account> {
           const SizedBox(height: 12),
           Row(
             children: [
-              Expanded(child: _buildCheckItem("At least 8 characters")),
-              Expanded(child: _buildCheckItem("One number")),
+              _buildCheckItem("At least 8 characters"),
+              _buildCheckItem("One number"),
             ],
           ),
           const SizedBox(height: 8),
           Row(
             children: [
-              Expanded(child: _buildCheckItem("One uppercase letter")),
-              Expanded(child: _buildCheckItem("One special character")),
+              _buildCheckItem("One uppercase letter"),
+              _buildCheckItem("One special character"),
             ],
           ),
         ],
@@ -239,7 +237,7 @@ class _Step1AccountState extends State<Step1Account> {
     return Row(
       children: [
         const Icon(Icons.check_circle_outline, color: Colors.green, size: 16),
-        const SizedBox(width: 8),
+        
         Text(text, style: GoogleFonts.inter(color: Colors.green.shade700, fontSize: 12)),
       ],
     );

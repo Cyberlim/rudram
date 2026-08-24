@@ -1,3 +1,4 @@
+import '../../widgets/responsive_row.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -48,22 +49,20 @@ class Step4Bank extends StatelessWidget {
           Text("This is required so the platform can send vendor earnings.", style: GoogleFonts.inter(color: Colors.grey.shade600, fontSize: 14)),
           const SizedBox(height: 32),
 
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
-              Expanded(child: _buildTextField("Account Holder Name *", "Name as per bank records", holderNameController, Icons.person_outline)),
-              const SizedBox(width: 24),
-              Expanded(child: _buildTextField("Bank Name *", "e.g. State Bank of India", bankNameController, Icons.account_balance_outlined)),
+              _buildTextField("Account Holder Name *", "Name as per bank records", holderNameController, Icons.person_outline),
+              
+              _buildTextField("Bank Name *", "e.g. State Bank of India", bankNameController, Icons.account_balance_outlined),
             ],
           ),
           const SizedBox(height: 24),
           
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
-              Expanded(child: _buildTextField("Bank Account Number *", "Enter account number", accountNumberController, Icons.numbers_outlined, keyboardType: TextInputType.number)),
-              const SizedBox(width: 24),
-              Expanded(child: _buildTextField("IFSC Code *", "Enter 11-character IFSC", ifscController, Icons.account_balance_wallet_outlined, textCapitalization: TextCapitalization.characters)),
+              _buildTextField("Bank Account Number *", "Enter account number", accountNumberController, Icons.numbers_outlined, keyboardType: TextInputType.number),
+              
+              _buildTextField("IFSC Code *", "Enter 11-character IFSC", ifscController, Icons.account_balance_wallet_outlined, textCapitalization: TextCapitalization.characters),
             ],
           ),
           const SizedBox(height: 24),
@@ -81,7 +80,7 @@ class Step4Bank extends StatelessWidget {
             child: Row(
               children: [
                 Icon(Icons.info_outline, color: Colors.blue.shade700),
-                const SizedBox(width: 12),
+                
                 Expanded(
                   child: Text(
                     "Ensure the bank account is in the name of the registered business or proprietor to avoid payout delays.",

@@ -1,3 +1,4 @@
+import '../../widgets/responsive_row.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -106,11 +107,10 @@ class _Step2BusinessState extends State<Step2Business> {
           Text("Store & business information", style: GoogleFonts.inter(color: Colors.grey.shade600, fontSize: 14)),
           const SizedBox(height: 32),
 
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
-              Expanded(child: _buildTextField("Store / Brand Name *", "Enter your store name", widget.storeNameController, Icons.storefront_outlined)),
-              const SizedBox(width: 24),
+              _buildTextField("Store / Brand Name *", "Enter your store name", widget.storeNameController, Icons.storefront_outlined),
+              
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,9 +179,9 @@ class _Step2BusinessState extends State<Step2Business> {
 
           Row(
             children: [
-              Expanded(child: _buildImageUploadBox("Store Logo", "JPG, PNG (1:1 aspect ratio)", widget.storeLogo, () => _pickImage(true))),
-              const SizedBox(width: 24),
-              Expanded(child: _buildImageUploadBox("Store Banner", "JPG, PNG (16:9 aspect ratio)", widget.storeBanner, () => _pickImage(false))),
+              _buildImageUploadBox("Store Logo", "JPG, PNG (1:1 aspect ratio)", widget.storeLogo, () => _pickImage(true)),
+              
+              _buildImageUploadBox("Store Banner", "JPG, PNG (16:9 aspect ratio)", widget.storeBanner, () => _pickImage(false)),
             ],
           ),
           const SizedBox(height: 24),
@@ -189,14 +189,13 @@ class _Step2BusinessState extends State<Step2Business> {
           _buildTextField("Business Address *", "Enter complete address", widget.addressController, Icons.location_on_outlined, maxLines: 2),
           const SizedBox(height: 24),
 
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
-              Expanded(child: _buildTextField("City *", "City", widget.cityController, Icons.location_city_outlined)),
-              const SizedBox(width: 24),
-              Expanded(child: _buildTextField("State *", "State", widget.stateController, Icons.map_outlined)),
-              const SizedBox(width: 24),
-              Expanded(child: _buildTextField("PIN Code *", "123456", widget.pinCodeController, Icons.pin_drop_outlined, keyboardType: TextInputType.number)),
+              _buildTextField("City *", "City", widget.cityController, Icons.location_city_outlined),
+              
+              _buildTextField("State *", "State", widget.stateController, Icons.map_outlined),
+              
+              _buildTextField("PIN Code *", "123456", widget.pinCodeController, Icons.pin_drop_outlined, keyboardType: TextInputType.number),
             ],
           ),
           
@@ -215,7 +214,7 @@ class _Step2BusinessState extends State<Step2Business> {
                   Row(
                     children: [
                       const Icon(Icons.star, color: Color(0xFFC09947)),
-                      const SizedBox(width: 12),
+                      
                       Text("VIP Qualification Information", style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold, color: const Color(0xFFC09947))),
                     ],
                   ),
@@ -226,22 +225,20 @@ class _Step2BusinessState extends State<Step2Business> {
                   _buildTextField("Why do you want to join as a VIP vendor? *", "Explain your motivation", widget.vipReasonController, Icons.text_snippet_outlined, maxLines: 3),
                   const SizedBox(height: 24),
                   
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  ResponsiveRow(
                     children: [
-                      Expanded(child: _buildTextField("Current Annual Turnover *", "e.g. 5 Crores", widget.turnoverController, Icons.account_balance_wallet_outlined)),
-                      const SizedBox(width: 24),
-                      Expanded(child: _buildTextField("Number of Orders per Month *", "e.g. 500", widget.ordersPerMonthController, Icons.shopping_cart_outlined, keyboardType: TextInputType.number)),
+                      _buildTextField("Current Annual Turnover *", "e.g. 5 Crores", widget.turnoverController, Icons.account_balance_wallet_outlined),
+                      
+                      _buildTextField("Number of Orders per Month *", "e.g. 500", widget.ordersPerMonthController, Icons.shopping_cart_outlined, keyboardType: TextInputType.number),
                     ],
                   ),
                   const SizedBox(height: 24),
                   
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  ResponsiveRow(
                     children: [
-                      Expanded(child: _buildTextField("Existing Customer Base", "e.g. 10,000+", widget.customerBaseController, Icons.groups_outlined)),
-                      const SizedBox(width: 24),
-                      Expanded(child: _buildTextField("Years of Market Experience *", "e.g. 5", widget.yearsExperienceController, Icons.timeline_outlined, keyboardType: TextInputType.number)),
+                      _buildTextField("Existing Customer Base", "e.g. 10,000+", widget.customerBaseController, Icons.groups_outlined),
+                      
+                      _buildTextField("Years of Market Experience *", "e.g. 5", widget.yearsExperienceController, Icons.timeline_outlined, keyboardType: TextInputType.number),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -249,12 +246,11 @@ class _Step2BusinessState extends State<Step2Business> {
                   _buildTextField("Premium Brands Represented", "List brands separated by commas", widget.premiumBrandsController, Icons.diamond_outlined),
                   const SizedBox(height: 24),
                   
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  ResponsiveRow(
                     children: [
-                      Expanded(child: _buildTextField("Physical Store Count", "e.g. 3", widget.physicalStoreCountController, Icons.store_outlined, keyboardType: TextInputType.number)),
-                      const SizedBox(width: 24),
-                      Expanded(child: _buildTextField("Existing Online Store URL", "https://...", widget.storeUrlController, Icons.link_outlined)),
+                      _buildTextField("Physical Store Count", "e.g. 3", widget.physicalStoreCountController, Icons.store_outlined, keyboardType: TextInputType.number),
+                      
+                      _buildTextField("Existing Online Store URL", "https://...", widget.storeUrlController, Icons.link_outlined),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -262,12 +258,11 @@ class _Step2BusinessState extends State<Step2Business> {
                   _buildTextField("Previous E-commerce Platforms", "e.g. Amazon, Flipkart", widget.previousPlatformsController, Icons.web_outlined),
                   const SizedBox(height: 24),
                   
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  ResponsiveRow(
                     children: [
-                      Expanded(child: _buildTextField("Marketplace Ratings", "e.g. 4.8/5 on Amazon", widget.marketplaceRatingsController, Icons.star_border_outlined)),
-                      const SizedBox(width: 24),
-                      Expanded(child: _buildTextField("Certifications / Awards", "e.g. Best Retailer 2023", widget.certificationsController, Icons.emoji_events_outlined)),
+                      _buildTextField("Marketplace Ratings", "e.g. 4.8/5 on Amazon", widget.marketplaceRatingsController, Icons.star_border_outlined),
+                      
+                      _buildTextField("Certifications / Awards", "e.g. Best Retailer 2023", widget.certificationsController, Icons.emoji_events_outlined),
                     ],
                   ),
                 ],

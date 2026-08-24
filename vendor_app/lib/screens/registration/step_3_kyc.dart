@@ -74,9 +74,9 @@ class Step3Kyc extends StatelessWidget {
             const SizedBox(height: 24),
             Row(
               children: [
-                Expanded(child: _buildFileUploadBox("Business Registration Certificate *", "Upload Certificate (PDF, JPG up to 5MB)", businessCertDoc, () => _pickDocument(onBusinessCertSelected))),
-                const SizedBox(width: 24),
-                Expanded(child: _buildFileUploadBox("GST Certificate Upload", "Upload GST Cert (PDF, JPG up to 5MB)", gstCertDoc, () => _pickDocument(onGstCertSelected))),
+                _buildFileUploadBox("Business Registration Certificate *", "Upload Certificate (PDF, JPG up to 5MB)", businessCertDoc, () => _pickDocument(onBusinessCertSelected)),
+                
+                _buildFileUploadBox("GST Certificate Upload", "Upload GST Cert (PDF, JPG up to 5MB)", gstCertDoc, () => _pickDocument(onGstCertSelected)),
               ],
             )
           ],
@@ -92,7 +92,7 @@ class Step3Kyc extends StatelessWidget {
             child: Row(
               children: [
                 const Icon(Icons.verified, color: Colors.green),
-                const SizedBox(width: 12),
+                
                 Expanded(
                   child: Text(
                     "Your information is securely encrypted and used only for verification purposes to ensure trust on JewelCraft.",

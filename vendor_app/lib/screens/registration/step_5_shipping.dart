@@ -1,3 +1,4 @@
+import '../../widgets/responsive_row.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,22 +34,20 @@ class Step5Shipping extends StatelessWidget {
           Text("Pickup & return address configuration", style: GoogleFonts.inter(color: Colors.grey.shade600, fontSize: 14)),
           const SizedBox(height: 32),
 
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
-              Expanded(child: _buildTextField("Pickup Address *", "Primary location for courier pickup", pickupAddressController, Icons.location_on_outlined, maxLines: 2)),
-              const SizedBox(width: 24),
-              Expanded(child: _buildTextField("Warehouse Address (Optional)", "Secondary inventory location", warehouseAddressController, Icons.warehouse_outlined, maxLines: 2)),
+              _buildTextField("Pickup Address *", "Primary location for courier pickup", pickupAddressController, Icons.location_on_outlined, maxLines: 2),
+              
+              _buildTextField("Warehouse Address (Optional)", "Secondary inventory location", warehouseAddressController, Icons.warehouse_outlined, maxLines: 2),
             ],
           ),
           const SizedBox(height: 24),
           
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ResponsiveRow(
             children: [
-              Expanded(child: _buildTextField("Shipping Provider *", "e.g. Delhivery, BlueDart, Own Fleet", shippingProviderController, Icons.local_shipping_outlined)),
-              const SizedBox(width: 24),
-              Expanded(child: _buildTextField("Estimated Processing Time *", "e.g. 1-2 business days", processingTimeController, Icons.timer_outlined)),
+              _buildTextField("Shipping Provider *", "e.g. Delhivery, BlueDart, Own Fleet", shippingProviderController, Icons.local_shipping_outlined),
+              
+              _buildTextField("Estimated Processing Time *", "e.g. 1-2 business days", processingTimeController, Icons.timer_outlined),
             ],
           ),
           const SizedBox(height: 24),
