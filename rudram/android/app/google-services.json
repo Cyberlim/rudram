@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "357831414448",
+    "project_id": "rudram-4b896",
+    "storage_bucket": "rudram-4b896.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357831414448:android:ca95425d4857d30f442175",
+        "android_client_info": {
+          "package_name": "com.example.rudram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357831414448-k6blr8k4hnbmv6i5v5t1pifb3o4om089.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4SGgeNvCT5o3d7Ya1lx2vrYWwNSdGhvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357831414448-k6blr8k4hnbmv6i5v5t1pifb3o4om089.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,264 @@
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:267:43: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:267:40: Error: Method invocation is not a constant       
+lib/screens/desktop/desktop_shop_page.dart:926:45: Error: Not a constant expression.
+lib/screens/desktop/desktop_shop_page.dart:926:42: Error: Method invocation is not a constant expression.        
+lib/screens/desktop/desktop_shop_page.dart:926:54: Error: Not a constant expression.
+lib/screens/desktop/desktop_shop_page.dart:926:64: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:78:33: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:78:30: Error: Method invocation is not a constant expression.        
+lib/screens/desktop/desktop_rooms_page.dart:78:42: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:78:52: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:234:53: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:234:50: Error: Method invocation is not a constant expression.       
+lib/screens/desktop/desktop_rooms_page.dart:234:62: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:234:72: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:223:52: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:223:49: Error: Method invocation is not a constant       
+lib/screens/desktop/desktop_category_products_page.dart:223:61: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:223:71: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:103: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:100: Error: Method invocation is not a constant      
+lib/screens/desktop/desktop_category_products_page.dart:236:112: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:122: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:165: Error: A record literal with exactly one        
+lib/screens/desktop/desktop_category_products_page.dart:257:50: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:257:47: Error: Method invocation is not a constant       
+lib/screens/desktop/desktop_category_products_page.dart:257:59: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:257:69: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:84: Error: The argument type 'Object' can't be       
+lib/screens/desktop/desktop_category_products_page.dart:387:45: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:387:42: Error: Method invocation is not a constant       
+lib/screens/desktop/desktop_category_products_page.dart:387:54: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:387:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_footer_section.dart:33:41: Error: Not a constant expression.
+lib/widgets/desktop/desktop_footer_section.dart:33:38: Error: Method invocation is not a constant expression.    
+lib/widgets/desktop/desktop_footer_section.dart:139:29: Error: Not a constant expression.
+lib/widgets/desktop/desktop_footer_section.dart:139:26: Error: Method invocation is not a constant expression.   
+lib/widgets/desktop/desktop_footer_section.dart:166:25: Error: The getter 'context' isn't defined for the type   
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:93:95: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:93:92: Error: Method invocation is not a constant        
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:93:104: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:93:114: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:93:157: Error: A record literal with exactly one
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:93:76: Error: The argument type 'Object' can't be        
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:230:39: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:230:36: Error: Method invocation is not a constant       
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:255:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:255:42: Error: Method invocation is not a constant       
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:267:43: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_and_shop_section.dart:267:40: Error: Method invocation is not a constant       
+lib/widgets/desktop/desktop_categories_section.dart:96:89: Error: Not a constant expression.
+lib/widgets/desktop/desktop_categories_section.dart:96:86: Error: Method invocation is not a constant expression.
+lib/widgets/desktop/desktop_categories_section.dart:96:98: Error: Not a constant expression.
+lib/widgets/desktop/desktop_categories_section.dart:96:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_categories_section.dart:96:151: Error: A record literal with exactly one positional  
+lib/widgets/desktop/desktop_categories_section.dart:96:70: Error: The argument type 'Object' can't be assigned to
+lib/screens/desktop/desktop_category_products_page.dart:223:52: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:223:49: Error: Method invocation is not a constant       
+lib/screens/desktop/desktop_category_products_page.dart:223:61: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:223:71: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:103: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:100: Error: Method invocation is not a constant      
+lib/screens/desktop/desktop_category_products_page.dart:236:112: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:122: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:165: Error: A record literal with exactly one        
+lib/screens/desktop/desktop_category_products_page.dart:257:50: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:257:47: Error: Method invocation is not a constant       
+lib/screens/desktop/desktop_category_products_page.dart:257:59: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:257:69: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:236:84: Error: The argument type 'Object' can't be       
+lib/screens/desktop/desktop_category_products_page.dart:387:45: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:387:42: Error: Method invocation is not a constant       
+lib/screens/desktop/desktop_category_products_page.dart:387:54: Error: Not a constant expression.
+lib/screens/desktop/desktop_category_products_page.dart:387:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_header.dart:185:33: Error: Not a constant expression.
+lib/widgets/desktop/desktop_header.dart:185:30: Error: Method invocation is not a constant expression.
+lib/widgets/desktop/desktop_header.dart:312:33: Error: Not a constant expression.
+lib/widgets/desktop/desktop_header.dart:312:30: Error: Method invocation is not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:78:33: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:78:30: Error: Method invocation is not a constant expression.        
+lib/screens/desktop/desktop_rooms_page.dart:78:42: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:78:52: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:234:53: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:234:50: Error: Method invocation is not a constant expression.       
+lib/screens/desktop/desktop_rooms_page.dart:234:62: Error: Not a constant expression.
+lib/screens/desktop/desktop_rooms_page.dart:234:72: Error: Not a constant expression.
+lib/screens/desktop/desktop_shop_page.dart:926:45: Error: Not a constant expression.
+lib/screens/desktop/desktop_shop_page.dart:926:42: Error: Method invocation is not a constant expression.        
+lib/screens/desktop/desktop_shop_page.dart:926:54: Error: Not a constant expression.
+lib/screens/desktop/desktop_shop_page.dart:926:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:80:40: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:80:37: Error: Method invocation is not a constant       
+lib/widgets/desktop/desktop_celebrity_style_section.dart:80:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:80:59: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:173:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:173:96: Error: Method invocation is not a constant      
+lib/widgets/desktop/desktop_celebrity_style_section.dart:173:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:173:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:173:161: Error: A record literal with exactly one       
+lib/widgets/desktop/desktop_celebrity_style_section.dart:173:80: Error: The argument type 'Object' can't be      
+lib/widgets/desktop/desktop_celebrity_style_section.dart:267:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:267:42: Error: Method invocation is not a constant      
+lib/widgets/desktop/desktop_celebrity_style_section.dart:267:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_celebrity_style_section.dart:267:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:80:40: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:80:37: Error: Method invocation is not a constant      
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:80:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:80:59: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:171:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:171:96: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:171:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:171:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:171:161: Error: A record literal with exactly one      
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:171:80: Error: The argument type 'Object' can't be     
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:265:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:265:42: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:265:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_temple_jewellery_section.dart:265:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_our_features_section.dart:86:32: Error: Not a constant expression.
+lib/widgets/desktop/desktop_our_features_section.dart:86:29: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_our_features_section.dart:86:41: Error: Not a constant expression.
+lib/widgets/desktop/desktop_our_features_section.dart:86:51: Error: Not a constant expression.
+lib/widgets/desktop/desktop_our_features_section.dart:68:31: Error: The getter 'context' isn't defined for the   
+lib/widgets/desktop/desktop_all_products_section.dart:95:40: Error: Not a constant expression.
+lib/widgets/desktop/desktop_all_products_section.dart:95:37: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_all_products_section.dart:95:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_all_products_section.dart:95:59: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:73:40: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:73:37: Error: Method invocation is not a constant expression.      
+lib/widgets/desktop/desktop_blog_section.dart:73:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:73:59: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:155:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:155:96: Error: Method invocation is not a constant expression.     
+lib/widgets/desktop/desktop_blog_section.dart:155:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:155:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:155:161: Error: A record literal with exactly one positional field 
+lib/widgets/desktop/desktop_blog_section.dart:155:80: Error: The argument type 'Object' can't be assigned to the 
+lib/widgets/desktop/desktop_blog_section.dart:223:41: Error: Not a constant expression.
+lib/widgets/desktop/desktop_blog_section.dart:223:38: Error: Method invocation is not a constant expression.     
+lib/widgets/desktop/desktop_watch_shop_section.dart:79:40: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:79:37: Error: Method invocation is not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:79:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:79:59: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:170:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:170:96: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_watch_shop_section.dart:170:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:170:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:170:161: Error: A record literal with exactly one positional 
+lib/widgets/desktop/desktop_watch_shop_section.dart:170:80: Error: The argument type 'Object' can't be assigned  
+lib/widgets/desktop/desktop_watch_shop_section.dart:264:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:264:42: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_watch_shop_section.dart:264:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_watch_shop_section.dart:264:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:252:40: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:252:37: Error: Method invocation is not a constant expression.   
+lib/widgets/desktop/desktop_luxury_section.dart:252:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:252:59: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:293:30: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:293:27: Error: Method invocation is not a constant expression.   
+lib/widgets/desktop/desktop_luxury_section.dart:293:39: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:293:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:333:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:333:96: Error: Method invocation is not a constant expression.   
+lib/widgets/desktop/desktop_luxury_section.dart:333:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:333:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:333:161: Error: A record literal with exactly one positional     
+lib/widgets/desktop/desktop_luxury_section.dart:348:35: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:348:32: Error: Method invocation is not a constant expression.   
+lib/widgets/desktop/desktop_luxury_section.dart:333:80: Error: The argument type 'Object' can't be assigned to   
+lib/widgets/desktop/desktop_luxury_section.dart:376:30: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:376:27: Error: Method invocation is not a constant expression.   
+lib/widgets/desktop/desktop_luxury_section.dart:376:39: Error: Not a constant expression.
+lib/widgets/desktop/desktop_luxury_section.dart:376:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:82:44: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:82:41: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_perfect_match_section.dart:82:53: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:82:63: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:105:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:105:46: Error: Method invocation is not a constant        
+lib/widgets/desktop/desktop_perfect_match_section.dart:203:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:203:96: Error: Method invocation is not a constant        
+lib/widgets/desktop/desktop_perfect_match_section.dart:203:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:203:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:203:161: Error: A record literal with exactly one
+lib/widgets/desktop/desktop_perfect_match_section.dart:203:80: Error: The argument type 'Object' can't be        
+lib/widgets/desktop/desktop_perfect_match_section.dart:297:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:297:42: Error: Method invocation is not a constant        
+lib/widgets/desktop/desktop_perfect_match_section.dart:297:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_perfect_match_section.dart:297:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:117:44: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:117:41: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:117:53: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:117:63: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:136:47: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:136:44: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:143:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:143:46: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:241:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:241:96: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:241:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:241:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:241:161: Error: A record literal with exactly one      
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:241:80: Error: The argument type 'Object' can't be
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:335:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:335:42: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:335:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_deals_of_the_day_section.dart:335:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:89:42: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:89:39: Error: Method invocation is not a constant      
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:89:51: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:89:61: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:213:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:213:96: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:213:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:213:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:213:161: Error: A record literal with exactly one      
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:213:80: Error: The argument type 'Object' can't be     
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:294:41: Error: Not a constant expression.
+lib/widgets/desktop/desktop_shop_by_occasion_section.dart:294:38: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:27:36: Error: Not a constant expression.
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:27:33: Error: Method invocation is not a constant      
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:27:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:27:55: Error: Not a constant expression.
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:197:39: Error: Not a constant expression.
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:197:36: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:278:39: Error: Not a constant expression.
+lib/widgets/desktop/desktop_exclusive_offers_section.dart:278:36: Error: Method invocation is not a constant     
+lib/widgets/desktop/desktop_trending_now_section.dart:82:44: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:82:41: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_trending_now_section.dart:82:53: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:82:63: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:105:49: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:105:46: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_trending_now_section.dart:196:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:196:96: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_trending_now_section.dart:196:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:196:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:196:161: Error: A record literal with exactly one
+lib/widgets/desktop/desktop_trending_now_section.dart:196:80: Error: The argument type 'Object' can't be assigned
+lib/widgets/desktop/desktop_trending_now_section.dart:290:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:290:42: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_trending_now_section.dart:290:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_trending_now_section.dart:290:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:77:36: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:77:33: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_best_sellers_section.dart:77:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:77:55: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:161:99: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:161:96: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_best_sellers_section.dart:161:108: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:161:118: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:161:161: Error: A record literal with exactly one
+lib/widgets/desktop/desktop_best_sellers_section.dart:161:80: Error: The argument type 'Object' can't be assigned
+lib/widgets/desktop/desktop_best_sellers_section.dart:255:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:255:42: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_best_sellers_section.dart:255:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_best_sellers_section.dart:255:64: Error: Not a constant expression.
+lib/widgets/desktop/desktop_new_arrivals_section.dart:22:34: Error: Not a constant expression.
+lib/widgets/desktop/desktop_new_arrivals_section.dart:22:31: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_new_arrivals_section.dart:22:43: Error: Not a constant expression.
+lib/widgets/desktop/desktop_new_arrivals_section.dart:22:53: Error: Not a constant expression.
+lib/widgets/desktop/desktop_flash_sale_section.dart:205:45: Error: Not a constant expression.
+lib/widgets/desktop/desktop_flash_sale_section.dart:205:42: Error: Method invocation is not a constant
+lib/widgets/desktop/desktop_flash_sale_section.dart:205:54: Error: Not a constant expression.
+lib/widgets/desktop/desktop_flash_sale_section.dart:205:64: Error: Not a constant expression.

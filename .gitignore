@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+
+# Builds
+build/
+dist/
+out/
+.next/
+vendor_app/build/
+rudram/build/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.iml
+*.swp
+.DS_Store
+
+# Environment
+.env
+.env.*
+*.local
+
+# Firebase
+firebase-debug.log
+firebase-debug.*.log
+
+# Flutter/Dart
+*.sock
+*.pb.dart
+*.pbenum.dart
+*.pbserver.dart
+*.pbjson.dart
+*.pbgrpc.dart
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
