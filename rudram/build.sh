@@ -14,6 +14,7 @@ FIREBASE_MEASUREMENT_ID=$FIREBASE_MEASUREMENT_ID
 FIREBASE_APP_ID_WEB=$FIREBASE_APP_ID_WEB
 EOF
 
+if [ -d "flutter" ]; then
   echo "Flutter directory exists, pulling latest..."
   cd flutter
   git pull
