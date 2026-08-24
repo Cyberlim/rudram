@@ -37,7 +37,7 @@ class HomeTab extends StatelessWidget {
     return SafeArea(
       child: AnimationLimiter(
         child: ListView(
-          scrollCacheExtent: ScrollCacheExtent.pixels(2000), physics: const BouncingScrollPhysics(),
+          cacheExtent: 2000.0, physics: const BouncingScrollPhysics(),
           addAutomaticKeepAlives: true, // Pre-render more items for smoother scroll
           children: Algorithm.run([
             const FeatureCarouselSection(),

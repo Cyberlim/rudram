@@ -280,7 +280,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                 ),
                 child: AnimationLimiter(
                   child: ListView(
-                    scrollCacheExtent: ScrollCacheExtent.pixels(1000), controller: scrollController,
+                    cacheExtent: 1000.0, controller: scrollController,
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
                     children: AnimationConfiguration.toStaggeredList(
