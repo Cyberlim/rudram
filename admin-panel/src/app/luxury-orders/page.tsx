@@ -39,7 +39,7 @@ export default function LuxuryOrdersPage() {
         const data = doc.data() as Order;
         // Client-side filtering for luxury orders to avoid needing an index
         if (data.isLuxury) {
-          ordersList.push({ id: doc.id, ...data });
+          ordersList.push({ ...data, id: doc.id });
         }
       });
       setOrders(ordersList);
