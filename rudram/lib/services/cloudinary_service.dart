@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:http/http.dart' as http;
@@ -24,55 +23,6 @@ class CloudinaryService {
   // ──────────────────────────────────────────────────────
 
   static const String _baseUrl = 'https://api.cloudinary.com/v1_1';
-
-  /// Uploads a file from the local filesystem (mobile/desktop).
-  ///
-  /// [file] — File picked via image_picker on mobile.
-  /// [folder] — Cloudinary folder to store in (e.g. 'profiles', 'products').
-  ///
-  /// Returns the secure HTTPS URL of the uploaded image, or null on failure.
-  static Future<String?> uploadFile(
-    File file, {
-    String folder = 'rudram',
-    String? publicId,
-  }) async {
-    try {
-      final mimeType = lookupMimeType(file.path) ?? 'image/jpeg';
-      final parts = mimeType.split('/');
-
-      final uri = Uri.parse('$_baseUrl/$_cloudName/image/upload');
-      final request = http.MultipartRequest('POST', uri);
-
-      request.fields['upload_preset'] = _uploadPreset;
-      request.fields['folder'] = folder;
-      if (publicId != null) request.fields['public_id'] = publicId;
-
-      request.files.add(
-        await http.MultipartFile.fromPath(
-          'file',
-          file.path,
-          contentType: MediaType(parts[0], parts[1]),
-        ),
-      );
-
-      final streamedResponse = await request.send().timeout(
-        const Duration(seconds: 60),
-      );
-      final response = await http.Response.fromStream(streamedResponse);
-
-      if (response.statusCode == 200) {
-        final json = jsonDecode(response.body) as Map<String, dynamic>;
-        return json['secure_url'] as String?;
-      } else {
-        final error = jsonDecode(response.body);
-        throw Exception('Cloudinary upload failed: ${error['error']?['message'] ?? response.body}');
-      }
-    } catch (e) {
-      // ignore: avoid_print
-      print('[CloudinaryService] uploadFile error: $e');
-      return null;
-    }
-  }
 
   /// Uploads raw bytes (for web where File is not available).
   ///
