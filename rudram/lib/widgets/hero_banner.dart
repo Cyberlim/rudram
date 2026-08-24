@@ -92,6 +92,7 @@ class _HeroBannerState extends State<HeroBanner>
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     if (_banners.isEmpty) {
       return const SizedBox(

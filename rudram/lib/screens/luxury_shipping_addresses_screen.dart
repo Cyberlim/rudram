@@ -109,7 +109,7 @@ class _LuxuryShippingAddressesScreenState extends State<LuxuryShippingAddressesS
                         title: const Text("Set as Default", style: TextStyle(color: Colors.white)),
                         value: isDefault,
                         onChanged: (val) => setSheetState(() => isDefault = val),
-                        activeColor: const Color(0xFFD4AF37),
+                        activeThumbColor: const Color(0xFFD4AF37),
                         contentPadding: EdgeInsets.zero,
                       ),
                       const SizedBox(height: 24),
@@ -187,7 +187,7 @@ class _LuxuryShippingAddressesScreenState extends State<LuxuryShippingAddressesS
               child: _uid == null
                   ? const Center(child: Text("Please sign in.", style: TextStyle(color: Colors.white)))
                   : StreamBuilder<List<Map<String, dynamic>>>(
-                      stream: _firestoreService.getUserAddresses(_uid!),
+                      stream: _firestoreService.getUserAddresses(_uid),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.waiting) {
                           return const Center(child: CircularProgressIndicator(color: Color(0xFFD4AF37)));

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../utils/app_colors.dart';
 import '../models/data_models.dart';
 import '../widgets/product_card.dart';
 import '../services/firestore_service.dart';

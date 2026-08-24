@@ -267,7 +267,7 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
                               },
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             height: screenHeight,
                             width: screenWidth,
                             child: Row(
@@ -330,7 +330,7 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
                                       // Right Side: Reel Carousel
                                       Align(
                                         alignment: Alignment.centerRight,
-                                        child: Container(
+                                        child: SizedBox(
                                           width: screenWidth * 0.45,
                                           height: screenHeight * 0.95,
                                           child: CarouselSlider.builder(
@@ -414,7 +414,7 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
               BoxShadow(
                 color: const Color(
                   0xFF38BDF8,
-                ).withOpacity(_isDarkMode ? 0.5 : 0.3),
+                ).withValues(alpha: _isDarkMode ? 0.5 : 0.3),
                 blurRadius: 15,
               ),
           ],
@@ -432,8 +432,8 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
     final textColor = _isDarkMode ? Colors.white : const Color(0xFF1E293B);
     final subtextColor = _isDarkMode ? Colors.white70 : const Color(0xFF64748B);
     final cardColor = _isDarkMode
-        ? Colors.black.withOpacity(0.4)
-        : Colors.white.withOpacity(0.4);
+        ? Colors.black.withValues(alpha: 0.4)
+        : Colors.white.withValues(alpha: 0.4);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
@@ -447,11 +447,11 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
             borderRadius: BorderRadius.circular(25),
             border: Border.all(
               color: _isDarkMode
-                  ? Colors.white.withOpacity(0.1)
-                  : Colors.white.withOpacity(0.5),
+                  ? Colors.white.withValues(alpha: 0.1)
+                  : Colors.white.withValues(alpha: 0.5),
             ),
             boxShadow: [
-              BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 20),
+              BoxShadow(color: Colors.black.withValues(alpha: 0.03), blurRadius: 20),
             ],
           ),
           child: Column(
@@ -515,7 +515,7 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.orangeAccent.withOpacity(0.1),
+                        color: Colors.orangeAccent.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -537,7 +537,7 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.blueAccent.withOpacity(0.1),
+                        color: Colors.blueAccent.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -559,7 +559,7 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFF38BDF8).withOpacity(0.3),
+                            color: const Color(0xFF38BDF8).withValues(alpha: 0.3),
                             blurRadius: 15,
                           ),
                         ],
@@ -602,16 +602,16 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
       height: height,
       decoration: BoxDecoration(
         color: _isDarkMode
-            ? Colors.black.withOpacity(0.2)
-            : Colors.white.withOpacity(0.2),
+            ? Colors.black.withValues(alpha: 0.2)
+            : Colors.white.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: _isDarkMode
-              ? Colors.white.withOpacity(0.1)
-              : Colors.white.withOpacity(0.4),
+              ? Colors.white.withValues(alpha: 0.1)
+              : Colors.white.withValues(alpha: 0.4),
         ),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 20),
+          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 20),
         ],
       ),
       child: ClipRRect(
@@ -637,7 +637,7 @@ class _DesktopReelsPageState extends State<DesktopReelsPage>
                       end: Alignment.bottomCenter,
                       colors: [
                         Colors.transparent,
-                        Colors.black.withOpacity(0.6),
+                        Colors.black.withValues(alpha: 0.6),
                       ],
                     ),
                   ),
@@ -744,8 +744,8 @@ class BubblePainter extends CustomPainter {
         center: Alignment.center,
         radius: 1.0,
         colors: [
-          color.withOpacity(isDarkMode ? 0.1 : 0.15),
-          color.withOpacity(isDarkMode ? 0.02 : 0.05),
+          color.withValues(alpha: isDarkMode ? 0.1 : 0.15),
+          color.withValues(alpha: isDarkMode ? 0.02 : 0.05),
           Colors.transparent,
         ],
       ).createShader(rect);
@@ -759,8 +759,8 @@ class BubblePainter extends CustomPainter {
         focalRadius: 0.1,
         radius: 0.8,
         colors: [
-          Colors.white.withOpacity(isDarkMode ? 0.1 : 0.2),
-          color.withOpacity(0.0),
+          Colors.white.withValues(alpha: isDarkMode ? 0.1 : 0.2),
+          color.withValues(alpha: 0.0),
         ],
       ).createShader(rect);
     canvas.drawCircle(center, radius, highlightPaint);
@@ -771,7 +771,7 @@ class BubblePainter extends CustomPainter {
         center: const Alignment(-0.3, -0.3),
         radius: 0.6,
         colors: [
-          Colors.white.withOpacity(isDarkMode ? 0.05 : 0.1),
+          Colors.white.withValues(alpha: isDarkMode ? 0.05 : 0.1),
           Colors.transparent,
         ],
       ).createShader(rect)
@@ -824,8 +824,8 @@ class ProjectionPainter extends CustomPainter {
       ..shader =
           LinearGradient(
             colors: [
-              const Color(0xFF38BDF8).withOpacity(isLight ? 0.05 : 0.08),
-              const Color(0xFF38BDF8).withOpacity(isLight ? 0.01 : 0.02),
+              const Color(0xFF38BDF8).withValues(alpha: isLight ? 0.05 : 0.08),
+              const Color(0xFF38BDF8).withValues(alpha: isLight ? 0.01 : 0.02),
               Colors.transparent,
             ],
           ).createShader(
@@ -837,7 +837,7 @@ class ProjectionPainter extends CustomPainter {
 
     // Glowing border on the left
     final borderPaint = Paint()
-      ..color = const Color(0xFF38BDF8).withOpacity(isLight ? 0.2 : 0.4)
+      ..color = const Color(0xFF38BDF8).withValues(alpha: isLight ? 0.2 : 0.4)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
@@ -855,7 +855,7 @@ class ProjectionPainter extends CustomPainter {
           LinearGradient(
             colors: [
               Colors.transparent,
-              Colors.white.withOpacity(isLight ? 0.15 : 0.1),
+              Colors.white.withValues(alpha: isLight ? 0.15 : 0.1),
               Colors.transparent,
             ],
             stops: [

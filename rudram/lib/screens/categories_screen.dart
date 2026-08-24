@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import '../services/firestore_service.dart';
 import 'category_details_screen.dart';
-import 'dart:math';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});

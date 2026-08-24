@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import '../models/data_models.dart';
 import '../services/gemini_service.dart';
-import '../utils/app_colors.dart';
 
 class AiStylistScreen extends StatefulWidget {
   const AiStylistScreen({super.key});

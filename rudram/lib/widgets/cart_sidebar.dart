@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
 import '../utils/app_colors.dart';
-import '../screens/cart_screen.dart';
 import '../screens/checkout_screen.dart';
 import '../screens/desktop/desktop_checkout_page.dart';
 import '../utils/globals.dart';
@@ -43,7 +42,7 @@ class CartSidebar extends StatelessWidget {
                   color: AppColors.primaryOrange,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       blurRadius: 4,
                       offset: const Offset(0, 2),
                     ),

@@ -40,7 +40,7 @@ class _DesktopRoomsPageState extends State<DesktopRoomsPage> {
             hintText: "Room Name (e.g. Dream Wedding)",
             hintStyle: const TextStyle(color: Colors.black26),
             enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: goldColor.withOpacity(0.3)),
+              borderSide: BorderSide(color: goldColor.withValues(alpha: 0.3)),
             ),
             focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: goldColor),
@@ -119,8 +119,8 @@ class _DesktopRoomsPageState extends State<DesktopRoomsPage> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.black.withOpacity(0.2),
-              Colors.black.withOpacity(0.5),
+              Colors.black.withValues(alpha: 0.2),
+              Colors.black.withValues(alpha: 0.5),
             ],
           ),
         ),
@@ -213,7 +213,7 @@ class _DesktopRoomsPageState extends State<DesktopRoomsPage> {
                             borderRadius: BorderRadius.circular(4),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
+                                color: Colors.black.withValues(alpha: 0.05),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),

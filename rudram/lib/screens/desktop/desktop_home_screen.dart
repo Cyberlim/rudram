@@ -7,7 +7,6 @@ import '../../widgets/desktop/desktop_best_sellers_section.dart';
 import '../../widgets/desktop/desktop_trending_now_section.dart';
 import '../../widgets/desktop/desktop_exclusive_offers_section.dart';
 import '../../widgets/desktop/desktop_shop_by_occasion_section.dart';
-import '../../widgets/desktop/desktop_deals_of_the_day_section.dart';
 import '../../widgets/desktop/desktop_perfect_match_section.dart';
 import '../../widgets/desktop/desktop_luxury_section.dart';
 import '../../widgets/desktop/desktop_watch_shop_section.dart';

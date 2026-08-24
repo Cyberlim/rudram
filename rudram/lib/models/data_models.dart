@@ -69,7 +69,7 @@ class ProductItem {
         'discount': discount,
         'image': image,
         'images': images,
-        'bgColor': bgColor.value,
+        'bgColor': bgColor.toARGB32(),
         'category': category,
       };
 

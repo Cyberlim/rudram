@@ -179,7 +179,7 @@ class _VideoBannerCardState extends State<_VideoBannerCard> {
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(_isHovered ? 0.6 : 0.3),
+                    Colors.black.withValues(alpha: _isHovered ? 0.6 : 0.3),
                   ],
                 ),
               ),
@@ -260,7 +260,7 @@ class _ImageBannerCardState extends State<_ImageBannerCard> {
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(_isHovered ? 0.6 : 0.3),
+                    Colors.black.withValues(alpha: _isHovered ? 0.6 : 0.3),
                   ],
                 ),
               ),

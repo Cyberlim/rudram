@@ -385,7 +385,7 @@ class BlogDetailScreen extends StatelessWidget {
         width: width,
         height: height,
         fit: fit,
-        errorBuilder: (_, __, ___) => Container(width: width, height: height, color: Colors.grey[200]),
+        errorBuilder: (_, _, _) => Container(width: width, height: height, color: Colors.grey[200]),
       );
     }
     // Non-Unsplash URL (e.g., Cloudinary): load directly, fallback to local on error
@@ -394,7 +394,7 @@ class BlogDetailScreen extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
-      errorBuilder: (_, __, ___) {
+      errorBuilder: (_, _, _) {
         final asset = _localAssets[title.hashCode.abs() % _localAssets.length];
         return Image.asset(asset, width: width, height: height, fit: fit);
       },

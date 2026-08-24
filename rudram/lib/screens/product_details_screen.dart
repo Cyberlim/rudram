@@ -280,10 +280,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                 ),
                 child: AnimationLimiter(
                   child: ListView(
-                    controller: scrollController,
+                    scrollCacheExtent: ScrollCacheExtent.pixels(1000), controller: scrollController,
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
-                    cacheExtent: 1000,
                     children: AnimationConfiguration.toStaggeredList(
                       duration: const Duration(milliseconds: 375),
                       childAnimationBuilder: (widget) => SlideAnimation(
@@ -471,7 +470,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                               borderRadius: BorderRadius.circular(26),
                               boxShadow: [
                                 BoxShadow(
-                                  color: AppColors.primaryOrange.withOpacity(0.3),
+                                  color: AppColors.primaryOrange.withValues(alpha: 0.3),
                                   blurRadius: 8,
                                   offset: const Offset(0, 4),
                                 ),
@@ -1118,7 +1117,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                               context: context,
                               barrierDismissible: true,
                               barrierLabel: 'Cart',
-                              barrierColor: Colors.black.withOpacity(0.5),
+                              barrierColor: Colors.black.withValues(alpha: 0.5),
                               transitionDuration: const Duration(milliseconds: 300),
                               pageBuilder: (context, anim1, anim2) {
                                 return Material(

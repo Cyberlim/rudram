@@ -40,13 +40,13 @@ class _DesktopProductCardState extends State<DesktopProductCard> {
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: _isHovered
-                ? AppColors.primaryOrange.withOpacity(0.5)
+                ? AppColors.primaryOrange.withValues(alpha: 0.5)
                 : Colors.grey.shade200,
             width: 1.5,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(_isHovered ? 0.12 : 0.04),
+              color: Colors.black.withValues(alpha: _isHovered ? 0.12 : 0.04),
               blurRadius: _isHovered ? 20 : 10,
               offset: Offset(0, _isHovered ? 10 : 4),
               spreadRadius: _isHovered ? 2 : 0,
@@ -70,7 +70,7 @@ class _DesktopProductCardState extends State<DesktopProductCard> {
                     child: Image.network(
                       widget.product.image,
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => Container(
+                      errorBuilder: (_, _, _) => Container(
                         color: Colors.grey[100],
                         child: const Icon(
                           Icons.image_not_supported_outlined,
@@ -98,7 +98,7 @@ class _DesktopProductCardState extends State<DesktopProductCard> {
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: const Color(0xFFE91E63).withOpacity(0.3),
+                              color: const Color(0xFFE91E63).withValues(alpha: 0.3),
                               blurRadius: 6,
                               offset: const Offset(0, 2),
                             ),
@@ -121,7 +121,7 @@ class _DesktopProductCardState extends State<DesktopProductCard> {
                     opacity: _isHovered ? 1.0 : 0.0,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(14),
                         ),
@@ -281,7 +281,7 @@ class _DesktopProductCardState extends State<DesktopProductCard> {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black.withValues(alpha: 0.15),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),

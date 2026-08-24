@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../../providers/auth_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../home_screen.dart';
-import '../luxury_home_content.dart'; // Just redirecting to home upon skip for now
+// Just redirecting to home upon skip for now
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -82,7 +82,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
             height: 300,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: const Color(0xFFE8DCC4).withOpacity(0.3),
+              color: const Color(0xFFE8DCC4).withValues(alpha: 0.3),
             ),
           ),
         ),
@@ -178,8 +178,8 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
                       end: Alignment.bottomRight,
                       colors: [
                         const Color(0xFF0F1E19),
-                        const Color(0xFF0F1E19).withOpacity(0.8),
-                        const Color(0xFFC69C6D).withOpacity(0.2),
+                        const Color(0xFF0F1E19).withValues(alpha: 0.8),
+                        const Color(0xFFC69C6D).withValues(alpha: 0.2),
                       ]
                     )
                   ),
@@ -251,7 +251,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(24),
                       boxShadow: [
-                        BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 40, offset: const Offset(0, 10)),
+                        BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 40, offset: const Offset(0, 10)),
                       ]
                     ),
                     child: Column(
@@ -297,7 +297,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: const Color(0xFFC69C6D).withOpacity(0.5)),
+            border: Border.all(color: const Color(0xFFC69C6D).withValues(alpha: 0.5)),
           ),
           child: Icon(icon, color: const Color(0xFFC69C6D), size: 24),
         ),
@@ -364,7 +364,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 20, offset: const Offset(0, 4)),
+          BoxShadow(color: Colors.black.withValues(alpha: 0.03), blurRadius: 20, offset: const Offset(0, 4)),
         ]
       ),
       child: Row(
@@ -389,7 +389,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: const Color(0xFFFAF9F6),
-              border: Border.all(color: const Color(0xFFC69C6D).withOpacity(0.3)),
+              border: Border.all(color: const Color(0xFFC69C6D).withValues(alpha: 0.3)),
             ),
             child: Icon(icon, color: const Color(0xFFC69C6D), size: 20),
           ),
@@ -417,7 +417,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
-                BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+                BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, 4)),
               ]
             ),
             child: isLoading
@@ -429,7 +429,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
                         'https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg',
                         width: 24,
                         height: 24,
-                        errorBuilder: (_, __, ___) => const Icon(Icons.g_mobiledata, size: 28),
+                        errorBuilder: (_, _, _) => const Icon(Icons.g_mobiledata, size: 28),
                       ),
                       const SizedBox(width: 12),
                       Text("Continue with Google", style: GoogleFonts.inter(color: const Color(0xFF0F1E19), fontSize: 16, fontWeight: FontWeight.w600)),

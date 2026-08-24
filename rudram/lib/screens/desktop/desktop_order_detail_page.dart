@@ -81,7 +81,7 @@ class DesktopOrderDetailPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFD166).withOpacity(0.1),
+        color: const Color(0xFFFFD166).withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(30),
         border: Border.all(color: const Color(0xFFFFD166)),
       ),

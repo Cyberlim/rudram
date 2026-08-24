@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 import 'profile/notifications_screen.dart';
 import 'profile/settings_screen.dart';
@@ -652,7 +651,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               trailing: Switch(
                 value: themeProvider.isDarkMode,
                 onChanged: (value) => themeProvider.toggleTheme(value),
-                activeColor: Colors.white,
+                activeThumbColor: Colors.white,
                 activeTrackColor: Colors.black87,
                 inactiveThumbColor: Colors.white,
                 inactiveTrackColor: Colors.grey.withValues(alpha: 0.3),

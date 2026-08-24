@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../models/data_models.dart';
-import '../utils/app_colors.dart';
 import '../services/firestore_service.dart';
 import 'product_card.dart';
 

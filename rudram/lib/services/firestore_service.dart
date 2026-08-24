@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../models/data_models.dart';
@@ -556,7 +555,7 @@ class FirestoreService {
         'discount': product.discount,
         'image': product.image,
         'category': product.category,
-        'bgColor': product.bgColor.value,
+        'bgColor': product.bgColor.toARGB32(),
       });
     }
 

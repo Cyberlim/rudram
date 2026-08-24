@@ -41,7 +41,7 @@ class DesktopHeader extends StatelessWidget {
         color: bgColor,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(effectiveIsDark ? 0.3 : 0.02),
+            color: Colors.black.withValues(alpha: effectiveIsDark ? 0.3 : 0.02),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),

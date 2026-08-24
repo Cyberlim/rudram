@@ -30,10 +30,10 @@ class _DesktopShopPageState extends State<DesktopShopPage>
   String _selectedCategory = "All";
   String _searchQuery = "";
   RangeValues _priceRange = const RangeValues(0, 1000000);
-  Set<String> _selectedOccasions = {};
-  Set<String> _selectedGenders = {};
-  Set<String> _selectedColors = {};
-  Set<String> _selectedDiscounts = {};
+  final Set<String> _selectedOccasions = {};
+  final Set<String> _selectedGenders = {};
+  final Set<String> _selectedColors = {};
+  final Set<String> _selectedDiscounts = {};
   int? _minRating;
   _SortOption _sortOption = _SortOption.defaultOrder;
 
@@ -284,7 +284,7 @@ class _DesktopShopPageState extends State<DesktopShopPage>
                                     activeTrackColor: const Color(0xFF818CF8),
                                     inactiveTrackColor: isDark ? Colors.white12 : const Color(0xFFF1F5F9),
                                     thumbColor: isDark ? Colors.grey.shade300 : Colors.white,
-                                    overlayColor: const Color(0xFF818CF8).withOpacity(0.1),
+                                    overlayColor: const Color(0xFF818CF8).withValues(alpha: 0.1),
                                     thumbShape: const RoundSliderThumbShape(
                                       enabledThumbRadius: 8,
                                       elevation: 4,
@@ -857,7 +857,7 @@ class _DesktopShopProductCardState extends State<_DesktopShopProductCard> {
                     color: const Color(0xFFF5F5F5),
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: _isHovered
-                        ? [BoxShadow(color: Colors.black.withOpacity(0.12), blurRadius: 20, offset: const Offset(0, 8))]
+                        ? [BoxShadow(color: Colors.black.withValues(alpha: 0.12), blurRadius: 20, offset: const Offset(0, 8))]
                         : [],
                   ),
                   child: Stack(
@@ -870,7 +870,7 @@ class _DesktopShopProductCardState extends State<_DesktopShopProductCard> {
                           height: double.infinity,
                           fit: BoxFit.cover,
                           cacheWidth: 600,
-                          errorBuilder: (_, __, ___) => const Center(
+                          errorBuilder: (_, _, _) => const Center(
                             child: Icon(Icons.image_outlined, size: 40, color: Colors.grey),
                           ),
                         ),
@@ -898,7 +898,7 @@ class _DesktopShopProductCardState extends State<_DesktopShopProductCard> {
                       if (_isHovered)
                         Positioned.fill(
                           child: Container(
-                            color: Colors.black.withOpacity(0.04),
+                            color: Colors.black.withValues(alpha: 0.04),
                           ),
                         ),
                     ],

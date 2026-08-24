@@ -50,6 +50,8 @@ class DesktopInspirationPage extends StatelessWidget {
 }
 
 class MasonryGrid extends StatelessWidget {
+  const MasonryGrid({super.key});
+
   @override
   Widget build(BuildContext context) {
     final images = [

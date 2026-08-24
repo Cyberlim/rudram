@@ -178,7 +178,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
         boxShadow: [
           if (!isDark)
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 20,
               offset: const Offset(0, 4),
             ),
@@ -256,7 +256,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
                   icon: const Icon(Icons.edit, size: 18),
                   label: const Text("Edit Profile"),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple.withOpacity(0.1),
+                    backgroundColor: Colors.purple.withValues(alpha: 0.1),
                     foregroundColor: Colors.purple,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -350,12 +350,12 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [color.withOpacity(0.8), color],
+            colors: [color.withValues(alpha: 0.8), color],
           ),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: color.withOpacity(0.3),
+              color: color.withValues(alpha: 0.3),
               blurRadius: 15,
               offset: const Offset(0, 5),
             ),
@@ -392,7 +392,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
         boxShadow: [
           if (!isDark)
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 20,
               offset: const Offset(0, 4),
             ),
@@ -439,7 +439,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
     return Container(
       width: 1,
       height: 50,
-      color: Colors.grey.withOpacity(0.2),
+      color: Colors.grey.withValues(alpha: 0.2),
     );
   }
 
@@ -478,7 +478,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
               trailing: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.purple.withOpacity(0.1),
+                  color: Colors.purple.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -504,10 +504,10 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
               trailing: Switch(
                 value: themeProvider.isDarkMode,
                 onChanged: (value) => themeProvider.toggleTheme(value),
-                activeColor: Colors.white,
+                activeThumbColor: Colors.white,
                 activeTrackColor: Colors.black87,
                 inactiveThumbColor: Colors.white,
-                inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                inactiveTrackColor: Colors.grey.withValues(alpha: 0.3),
               ),
             ),
             _buildDivider(context),
@@ -615,7 +615,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
               boxShadow: [
                 if (!isDark)
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 15,
                     offset: const Offset(0, 4),
                   ),
@@ -681,7 +681,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, color: color, size: 22),
@@ -705,7 +705,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
                       subtitle,
                       style: TextStyle(
                         fontSize: 12,
-                        color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.7),
+                        color: Theme.of(context).textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
                       ),
                     ),
                   ],
@@ -715,7 +715,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
             if (trailing != null)
               trailing
             else
-              Icon(Icons.chevron_right, color: Colors.grey.withOpacity(0.4), size: 20),
+              Icon(Icons.chevron_right, color: Colors.grey.withValues(alpha: 0.4), size: 20),
           ],
         ),
       ),
@@ -728,7 +728,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
       padding: const EdgeInsets.only(left: 56, right: 16),
       child: Divider(
         height: 1,
-        color: isDark ? Colors.white12 : Colors.grey.withOpacity(0.15),
+        color: isDark ? Colors.white12 : Colors.grey.withValues(alpha: 0.15),
       ),
     );
   }

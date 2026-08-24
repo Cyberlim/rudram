@@ -5,7 +5,7 @@ import '../services/firestore_service.dart';
 import 'product_card.dart';
 
 class BestSellersSection extends StatelessWidget {
-  BestSellersSection({super.key});
+  const BestSellersSection({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -15,7 +15,6 @@ import 'providers/rooms_provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/wishlist_provider.dart';
 import 'providers/wallet_provider.dart';
-import 'services/firestore_service.dart';
 import 'utils/lenis_scroll_physics.dart';
 
 

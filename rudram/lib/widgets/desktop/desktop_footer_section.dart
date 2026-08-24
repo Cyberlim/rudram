@@ -166,7 +166,7 @@ class DesktopFooterSection extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor.withOpacity(0.1),
+        color: Theme.of(context).cardColor.withValues(alpha: 0.1),
         shape: BoxShape.circle,
       ),
       child: Icon(icon, color: Colors.white, size: 20),

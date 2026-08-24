@@ -133,7 +133,7 @@ class DesktopCategoriesSection extends StatelessWidget {
 class _CategoryItem extends StatefulWidget {
   final Map<String, dynamic> category;
 
-  const _CategoryItem({super.key, required this.category});
+  const _CategoryItem({required this.category});
 
   @override
   State<_CategoryItem> createState() => _CategoryItemState();
@@ -178,7 +178,7 @@ class _CategoryItemState extends State<_CategoryItem> {
                       10,
                       10,
                       10,
-                    ).withOpacity(0.05),
+                    ).withValues(alpha: 0.05),
                     blurRadius: 20,
                     offset: const Offset(0, 10),
                   ),

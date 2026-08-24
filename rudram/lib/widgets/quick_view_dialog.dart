@@ -96,7 +96,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.3),
+              color: Colors.black.withValues(alpha: 0.3),
               blurRadius: 50,
               offset: const Offset(0, 20),
             ),
@@ -114,8 +114,8 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Colors.grey.shade800.withOpacity(0.95),
-                        Colors.grey.shade900.withOpacity(0.95),
+                        Colors.grey.shade800.withValues(alpha: 0.95),
+                        Colors.grey.shade900.withValues(alpha: 0.95),
                       ],
                     ),
                   ),
@@ -157,7 +157,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                             size: 28,
                           ),
                           style: IconButton.styleFrom(
-                            backgroundColor: Colors.black.withOpacity(0.5),
+                            backgroundColor: Colors.black.withValues(alpha: 0.5),
                             shape: const CircleBorder(),
                           ),
                         )
@@ -181,7 +181,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
       width: 200,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(24),
           bottomLeft: Radius.circular(24),
@@ -203,7 +203,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
           Text(
             "${_currentProductIndex + 1} / ${_relatedProducts.length}",
             style: TextStyle(
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withValues(alpha: 0.6),
               fontSize: 11,
             ),
           ),
@@ -221,8 +221,8 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: isSelected
-                          ? const Color(0xFFE91E63).withOpacity(0.3)
-                          : Colors.white.withOpacity(0.1),
+                          ? const Color(0xFFE91E63).withValues(alpha: 0.3)
+                          : Colors.white.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: isSelected
@@ -273,7 +273,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
             child: Row(
               children: [
                 // Thumbnail column
-                Container(
+                SizedBox(
                   width: 100,
                   child: ListView.builder(
                     itemCount: _galleryImages.length,
@@ -291,7 +291,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                             border: Border.all(
                               color: isSelected
                                   ? const Color(0xFFE91E63)
-                                  : Colors.white.withOpacity(0.3),
+                                  : Colors.white.withValues(alpha: 0.3),
                               width: 2,
                             ),
                           ),
@@ -320,7 +320,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.white.withOpacity(0.05),
+                          color: Colors.white.withValues(alpha: 0.05),
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
@@ -355,7 +355,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                                 size: 32,
                               ),
                               style: IconButton.styleFrom(
-                                backgroundColor: Colors.black.withOpacity(0.5),
+                                backgroundColor: Colors.black.withValues(alpha: 0.5),
                                 shape: const CircleBorder(),
                               ),
                             ),
@@ -377,7 +377,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                                 size: 32,
                               ),
                               style: IconButton.styleFrom(
-                                backgroundColor: Colors.black.withOpacity(0.5),
+                                backgroundColor: Colors.black.withValues(alpha: 0.5),
                                 shape: const CircleBorder(),
                               ),
                             ),
@@ -408,7 +408,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -452,7 +452,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
         decoration: BoxDecoration(
           color: isSelected
               ? const Color(0xFFE91E63)
-              : Colors.white.withOpacity(0.1),
+              : Colors.white.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -497,7 +497,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                 Text(
                   "4.5/5.0",
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                     fontSize: 14,
                   ),
                 ),
@@ -507,7 +507,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
             Text(
               "Based on 1,234+ reviews",
               style: TextStyle(
-                color: Colors.white.withOpacity(0.7),
+                color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 12,
               ),
             ),
@@ -515,7 +515,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
             Text(
               "\"Excellent product! Highly recommended for anyone looking for quality.\"",
               style: TextStyle(
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.white.withValues(alpha: 0.8),
                 fontSize: 13,
                 fontStyle: FontStyle.italic,
               ),
@@ -539,7 +539,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
           key: const ValueKey(3),
           "${_currentProduct.title} is crafted with premium materials and attention to detail. Perfect for those who appreciate quality and style. This product combines functionality with aesthetic appeal, making it a perfect addition to your collection.",
           style: TextStyle(
-            color: Colors.white.withOpacity(0.8),
+            color: Colors.white.withValues(alpha: 0.8),
             fontSize: 13,
             height: 1.6,
           ),
@@ -558,7 +558,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
           Text(
             label,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withValues(alpha: 0.6),
               fontSize: 12,
             ),
           ),
@@ -580,7 +580,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
       padding: const EdgeInsets.only(bottom: 8),
       child: Text(
         feature,
-        style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 13),
+        style: TextStyle(color: Colors.white.withValues(alpha: 0.8), fontSize: 13),
       ),
     );
   }
@@ -591,13 +591,13 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                const Color(0xFFE91E63).withOpacity(0.2),
-                const Color(0xFF9C27B0).withOpacity(0.2),
+                const Color(0xFFE91E63).withValues(alpha: 0.2),
+                const Color(0xFF9C27B0).withValues(alpha: 0.2),
               ],
             ),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: const Color(0xFFE91E63).withOpacity(0.5),
+              color: const Color(0xFFE91E63).withValues(alpha: 0.5),
               width: 1,
             ),
           ),
@@ -637,7 +637,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                           Text(
                             "₹${_currentProduct.oldPrice.toStringAsFixed(0)}",
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.5),
+                              color: Colors.white.withValues(alpha: 0.5),
                               fontSize: 16,
                               decoration: TextDecoration.lineThrough,
                             ),
@@ -674,7 +674,7 @@ class _QuickViewDialogState extends State<QuickViewDialog> {
                     onPressed: () {},
                     icon: const Icon(Icons.favorite_border),
                     style: IconButton.styleFrom(
-                      backgroundColor: Colors.white.withOpacity(0.1),
+                      backgroundColor: Colors.white.withValues(alpha: 0.1),
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.all(16),
                     ),
@@ -713,7 +713,7 @@ void showQuickViewDialog(BuildContext context, ProductItem product) {
     context: context,
     barrierDismissible: true,
     barrierLabel: "Quick View",
-    barrierColor: Colors.black.withOpacity(0.7),
+    barrierColor: Colors.black.withValues(alpha: 0.7),
     transitionDuration: const Duration(milliseconds: 400),
     pageBuilder: (context, animation, secondaryAnimation) {
       return QuickViewDialog(product: product);

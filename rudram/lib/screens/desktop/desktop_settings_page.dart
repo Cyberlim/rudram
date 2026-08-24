@@ -284,10 +284,10 @@ class _DesktopSettingsPageState extends State<DesktopSettingsPage> {
                           trailing: Switch(
                             value: themeProvider.isDarkMode,
                             onChanged: (value) => themeProvider.toggleTheme(value),
-                            activeColor: Colors.white,
+                            activeThumbColor: Colors.white,
                             activeTrackColor: Colors.black87,
                             inactiveThumbColor: Colors.white,
-                            inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                            inactiveTrackColor: Colors.grey.withValues(alpha: 0.3),
                           ),
                         ),
                         _buildDivider(),
@@ -311,7 +311,7 @@ class _DesktopSettingsPageState extends State<DesktopSettingsPage> {
                           trailing: Switch(
                             value: _pushNotifications,
                             onChanged: (val) => setState(() => _pushNotifications = val),
-                            activeColor: Colors.white,
+                            activeThumbColor: Colors.white,
                             activeTrackColor: AppColors.primaryOrange,
                           ),
                         ),
@@ -324,7 +324,7 @@ class _DesktopSettingsPageState extends State<DesktopSettingsPage> {
                           trailing: Switch(
                             value: _emailPromotions,
                             onChanged: (val) => setState(() => _emailPromotions = val),
-                            activeColor: Colors.white,
+                            activeThumbColor: Colors.white,
                             activeTrackColor: AppColors.primaryOrange,
                           ),
                         ),
@@ -410,7 +410,7 @@ class _DesktopSettingsPageState extends State<DesktopSettingsPage> {
         boxShadow: [
           if (!isDark)
             BoxShadow(
-              color: Colors.black.withOpacity(0.03),
+              color: Colors.black.withValues(alpha: 0.03),
               blurRadius: 15,
               offset: const Offset(0, 5),
             )
@@ -443,7 +443,7 @@ class _DesktopSettingsPageState extends State<DesktopSettingsPage> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: iconColor.withOpacity(0.1),
+                color: iconColor.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, color: iconColor, size: 24),
@@ -477,7 +477,7 @@ class _DesktopSettingsPageState extends State<DesktopSettingsPage> {
             if (trailing != null)
               trailing
             else if (onTap != null)
-              Icon(Icons.chevron_right, color: Colors.grey.withOpacity(0.5), size: 24),
+              Icon(Icons.chevron_right, color: Colors.grey.withValues(alpha: 0.5), size: 24),
           ],
         ),
       ),
@@ -490,7 +490,7 @@ class _DesktopSettingsPageState extends State<DesktopSettingsPage> {
       padding: const EdgeInsets.only(left: 80, right: 24),
       child: Divider(
         height: 1,
-        color: isDark ? Colors.white12 : Colors.grey.withOpacity(0.15),
+        color: isDark ? Colors.white12 : Colors.grey.withValues(alpha: 0.15),
       ),
     );
   }

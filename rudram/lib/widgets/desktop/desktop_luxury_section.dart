@@ -109,7 +109,7 @@ class _DesktopLuxurySectionState extends State<DesktopLuxurySection> {
                             (Theme.of(context).brightness == Brightness.dark
                                     ? Colors.white
                                     : Colors.black)
-                                .withOpacity(
+                                .withValues(alpha: 
                                   _currentIndex == entry.key ? 0.9 : 0.4,
                                 ),
                       ),
@@ -191,7 +191,7 @@ class _LuxuryImageState extends State<_LuxuryImage> {
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(_isHovered ? 0.25 : 0.1),
+              color: Colors.black.withValues(alpha: _isHovered ? 0.25 : 0.1),
               blurRadius: _isHovered ? 40 : 20,
               offset: Offset(0, _isHovered ? 20 : 10),
             ),
@@ -222,7 +222,7 @@ class _LuxuryImageState extends State<_LuxuryImage> {
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
-                    colors: [Colors.black.withOpacity(0.4), Colors.transparent],
+                    colors: [Colors.black.withValues(alpha: 0.4), Colors.transparent],
                   ),
                 ),
               ),
@@ -241,7 +241,7 @@ class _LuxuryImageState extends State<_LuxuryImage> {
                     borderRadius: BorderRadius.circular(50),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 10,
                       ),
                     ],
@@ -363,7 +363,7 @@ class _LuxuryContent extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppColors.primaryOrange.withOpacity(0.1),
+            color: AppColors.primaryOrange.withValues(alpha: 0.1),
             shape: BoxShape.circle,
           ),
           child: Icon(icon, color: AppColors.primaryOrange, size: 20),

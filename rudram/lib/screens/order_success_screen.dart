@@ -117,13 +117,13 @@ class _OrderSuccessScreenState extends State<OrderSuccessScreen>
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          AppColors.primaryOrange.withOpacity(0.1),
-                          AppColors.primaryOrange.withOpacity(0.05),
+                          AppColors.primaryOrange.withValues(alpha: 0.1),
+                          AppColors.primaryOrange.withValues(alpha: 0.05),
                         ],
                       ),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
-                        color: AppColors.primaryOrange.withOpacity(0.3),
+                        color: AppColors.primaryOrange.withValues(alpha: 0.3),
                       ),
                     ),
                     child: Column(

@@ -51,7 +51,7 @@ class _LuxuryPaymentMethodsScreenState extends State<LuxuryPaymentMethodsScreen>
                     ),
                     const SizedBox(height: 24),
                     DropdownButtonFormField<String>(
-                      value: cardType,
+                      initialValue: cardType,
                       dropdownColor: Colors.grey[800],
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -104,7 +104,7 @@ class _LuxuryPaymentMethodsScreenState extends State<LuxuryPaymentMethodsScreen>
                       title: const Text("Set as Default", style: TextStyle(color: Colors.white)),
                       value: isDefault,
                       onChanged: (val) => setSheetState(() => isDefault = val),
-                      activeColor: const Color(0xFFD4AF37),
+                      activeThumbColor: const Color(0xFFD4AF37),
                       contentPadding: EdgeInsets.zero,
                     ),
                     const SizedBox(height: 24),

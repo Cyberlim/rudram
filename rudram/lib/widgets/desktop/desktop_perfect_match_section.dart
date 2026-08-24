@@ -193,7 +193,7 @@ class _DesktopPerfectMatchSectionState
           color: Theme.of(context).cardColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 5,
               offset: const Offset(0, 2),
             ),
@@ -261,7 +261,7 @@ class _MatchCardState extends State<_MatchCard> {
                       if (_isHovered)
                         Positioned.fill(
                           child: Container(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                           ),
                         ),
                     ],

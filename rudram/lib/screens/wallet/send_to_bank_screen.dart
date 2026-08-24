@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../providers/wallet_provider.dart';
-import '../../utils/app_colors.dart';
 
 class SendToBankScreen extends StatefulWidget {
   const SendToBankScreen({super.key});

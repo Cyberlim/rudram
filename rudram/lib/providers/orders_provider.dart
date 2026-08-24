@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:convert';
 import '../providers/cart_provider.dart';
 import '../services/firestore_service.dart';
-import '../models/data_models.dart' as dm;
 class OrderProduct {
   final String title;
   final String image;

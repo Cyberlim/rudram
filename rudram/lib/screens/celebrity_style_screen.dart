@@ -52,8 +52,9 @@ class CelebrityStyleScreen extends StatelessWidget {
                 
                 // Fallback descriptions for known styles
                 String desc = 'Explore this exclusive look';
-                if (title.contains('Red Carpet')) desc = 'Glamorous looks for the big night';
-                else if (title.contains('Bollywood')) desc = 'Desi vibes & traditional elegance';
+                if (title.contains('Red Carpet')) {
+                  desc = 'Glamorous looks for the big night';
+                } else if (title.contains('Bollywood')) desc = 'Desi vibes & traditional elegance';
                 else if (title.contains('Met Gala')) desc = 'Avant-garde & bold statements';
                 else if (title.contains('Cannes')) desc = 'French riviera sophistication';
                 else if (title.contains('Airport')) desc = 'Chic & comfortable travel styles';

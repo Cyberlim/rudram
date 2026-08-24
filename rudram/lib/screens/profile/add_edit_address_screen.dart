@@ -205,7 +205,7 @@ class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
               SwitchListTile(
                 title: const Text("Make this my default address", style: TextStyle(fontWeight: FontWeight.w600)),
                 value: _isDefault,
-                activeColor: Colors.orange,
+                activeThumbColor: Colors.orange,
                 contentPadding: EdgeInsets.zero,
                 onChanged: (val) => setState(() => _isDefault = val),
               ),

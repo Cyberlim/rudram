@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../models/data_models.dart';
 import '../../widgets/desktop/desktop_header.dart';
-import '../../utils/app_colors.dart';
 import '../../services/firestore_service.dart';
 import '../../providers/cart_provider.dart';
 import '../../providers/orders_provider.dart';
@@ -52,7 +51,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
 
   Map<String, dynamic>? _selectedAddress;
   Map<String, dynamic>? _selectedPaymentMethod;
-  String _fallbackPaymentMethod = 'COD';
+  final String _fallbackPaymentMethod = 'COD';
 
   // --- Form Controllers ---
   final _nameCtrl = TextEditingController();
@@ -76,14 +75,14 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
   void initState() {
     super.initState();
     if (_uid != null) {
-      _firestoreService.getUserAddresses(_uid!).first.then((addresses) {
+      _firestoreService.getUserAddresses(_uid).first.then((addresses) {
         if (mounted && addresses.isNotEmpty) {
           setState(() {
             _selectedAddress = addresses.firstWhere((a) => a['isDefault'] == true, orElse: () => addresses.first);
           });
         }
       });
-      _firestoreService.getUserPaymentMethods(_uid!).first.then((methods) {
+      _firestoreService.getUserPaymentMethods(_uid).first.then((methods) {
         if (mounted && methods.isNotEmpty) {
           setState(() {
             _selectedPaymentMethod = methods.firstWhere((m) => m['isDefault'] == true, orElse: () => methods.first);
@@ -277,7 +276,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Image.network(item.image, fit: BoxFit.contain,
-                errorBuilder: (_, __, ___) => const Icon(Icons.image_outlined, color: Colors.grey)),
+                errorBuilder: (_, _, _) => const Icon(Icons.image_outlined, color: Colors.grey)),
           ),
           const SizedBox(width: 20),
           Expanded(
@@ -368,7 +367,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
             decoration: BoxDecoration(
               color: _brandLight,
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: _brand.withOpacity(0.2)),
+              border: Border.all(color: _brand.withValues(alpha: 0.2)),
             ),
             child: Row(
               children: [
@@ -548,7 +547,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
                     child: ElevatedButton(
                       onPressed: () async {
                         if (_uid != null && _nameCtrl.text.isNotEmpty && _addressCtrl.text.isNotEmpty) {
-                          await _firestoreService.addAddress(_uid!, {
+                          await _firestoreService.addAddress(_uid, {
                             'name': _nameCtrl.text,
                             'street': _addressCtrl.text,
                             'city': _selectedCity,
@@ -660,7 +659,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
         Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: _textGrey)),
         const SizedBox(height: 6),
         DropdownButtonFormField<String>(
-          value: value,
+          initialValue: value,
           items: items.map((item) => DropdownMenuItem(value: item, child: Text(item))).toList(),
           onChanged: onChanged,
           decoration: InputDecoration(
@@ -686,7 +685,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
       return const Text("Please sign in to view saved addresses.");
     }
     return StreamBuilder<List<Map<String, dynamic>>>(
-      stream: _firestoreService.getUserAddresses(_uid!),
+      stream: _firestoreService.getUserAddresses(_uid),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator(color: _brand));
@@ -721,7 +720,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
                   color: isSelected ? _brandLight : Colors.white,
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: isSelected ? _brand.withOpacity(0.5) : _borderColor,
+                    color: isSelected ? _brand.withValues(alpha: 0.5) : _borderColor,
                     width: isSelected ? 2 : 1,
                   ),
                 ),
@@ -928,7 +927,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
       return const Text("Please sign in to view saved cards.");
     }
     return StreamBuilder<List<Map<String, dynamic>>>(
-      stream: _firestoreService.getUserPaymentMethods(_uid!),
+      stream: _firestoreService.getUserPaymentMethods(_uid),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator(color: _brand));
@@ -959,7 +958,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
                   color: isSelected ? _brandLight : Colors.white,
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: isSelected ? _brand.withOpacity(0.5) : _borderColor,
+                    color: isSelected ? _brand.withValues(alpha: 0.5) : _borderColor,
                     width: isSelected ? 2 : 1,
                   ),
                 ),
@@ -1021,7 +1020,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
                 String last4 = _cardNumberCtrl.text.length >= 4 
                     ? _cardNumberCtrl.text.substring(_cardNumberCtrl.text.length - 4) 
                     : _cardNumberCtrl.text;
-                await _firestoreService.addPaymentMethod(_uid!, {
+                await _firestoreService.addPaymentMethod(_uid, {
                   'type': 'Visa', // Hardcoded for simplicity here, could be inferred
                   'last4': last4,
                   'expiry': _expiryCtrl.text,
@@ -1138,7 +1137,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: widget.cartItems.length,
-                  separatorBuilder: (_, __) => const SizedBox(width: 16),
+                  separatorBuilder: (_, _) => const SizedBox(width: 16),
                   itemBuilder: (_, i) {
                     final item = widget.cartItems[i];
                     return Container(
@@ -1152,7 +1151,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
                       child: Column(
                         children: [
                           Expanded(child: Image.network(item.image, fit: BoxFit.contain,
-                              errorBuilder: (_, __, ___) => const Icon(Icons.image_outlined))),
+                              errorBuilder: (_, _, _) => const Icon(Icons.image_outlined))),
                           const SizedBox(height: 8),
                           Text(item.title, maxLines: 1, overflow: TextOverflow.ellipsis,
                               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
@@ -1230,7 +1229,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
       tween: Tween(begin: 0, end: 1),
       duration: const Duration(milliseconds: 800),
       curve: Curves.elasticOut,
-      builder: (_, v, __) => Transform.scale(
+      builder: (_, v, _) => Transform.scale(
         scale: v,
         child: Stack(
           alignment: Alignment.center,
@@ -1240,7 +1239,7 @@ class _DesktopCheckoutPageState extends State<DesktopCheckoutPage> {
               height: 140,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: _brand.withOpacity(0.08),
+                color: _brand.withValues(alpha: 0.08),
               ),
             ),
             Container(

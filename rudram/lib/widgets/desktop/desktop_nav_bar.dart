@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../utils/app_colors.dart';
 import 'shop_mega_menu.dart';
 
 class DesktopNavBar extends StatefulWidget {

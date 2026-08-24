@@ -258,7 +258,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               trailing: Switch(
                 value: themeProvider.isDarkMode,
                 onChanged: (value) => themeProvider.toggleTheme(value),
-                activeColor: Colors.white,
+                activeThumbColor: Colors.white,
                 activeTrackColor: Colors.black87,
                 inactiveThumbColor: Colors.white,
                 inactiveTrackColor: Colors.grey.withValues(alpha: 0.3),
@@ -287,7 +287,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   setState(() => _pushNotifications = val);
                   _savePreference(push: val);
                 },
-                activeColor: Colors.white,
+                activeThumbColor: Colors.white,
                 activeTrackColor: AppColors.primaryOrange,
               ),
             ),
@@ -302,7 +302,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   setState(() => _emailPromotions = val);
                   _savePreference(email: val);
                 },
-                activeColor: Colors.white,
+                activeThumbColor: Colors.white,
                 activeTrackColor: AppColors.primaryOrange,
               ),
             ),

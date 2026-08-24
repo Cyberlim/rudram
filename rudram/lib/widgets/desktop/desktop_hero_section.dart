@@ -157,7 +157,7 @@ class _DesktopHeroSectionState extends State<DesktopHeroSection>
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(
+              color: Colors.black.withValues(alpha: 
                 _isCardHovered[index] ? 0.15 : 0.05,
               ),
               blurRadius: _isCardHovered[index] ? 20 : 10,
@@ -237,7 +237,7 @@ class _DesktopHeroSectionState extends State<DesktopHeroSection>
                   borderRadius: BorderRadius.circular(40),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
+                      color: Colors.black.withValues(alpha: 0.05),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
@@ -294,12 +294,12 @@ class _DesktopHeroSectionState extends State<DesktopHeroSection>
                 decoration: BoxDecoration(
                   color: isActive
                       ? Colors.white
-                      : Colors.white.withOpacity(0.4),
+                      : Colors.white.withValues(alpha: 0.4),
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: isActive
                       ? [
                           BoxShadow(
-                            color: Theme.of(context).cardColor.withOpacity(0.5),
+                            color: Theme.of(context).cardColor.withValues(alpha: 0.5),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),

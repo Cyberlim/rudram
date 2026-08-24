@@ -170,7 +170,7 @@ class _DesktopProductDetailPageState extends State<DesktopProductDetailPage> {
               onTap: () => setState(() => _isCartOpen = false),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
               ),
             ),
 
@@ -240,7 +240,7 @@ class _ProductHeroSection extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.02),
+                        color: Colors.black.withValues(alpha: 0.02),
                         blurRadius: 10,
                       ),
                     ],
@@ -313,7 +313,7 @@ class _ProductHeroSection extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 30,
               offset: const Offset(0, 10),
             ),
@@ -342,7 +342,7 @@ class _ProductHeroSection extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
             boxShadow: [
-              BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 15),
+              BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 15),
             ],
           ),
           clipBehavior: Clip.antiAlias,
@@ -376,7 +376,7 @@ class _ProductHeroSection extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -428,7 +428,7 @@ class _ProductHeroSection extends StatelessWidget {
                 boxShadow: [
                   if (isSelected)
                     BoxShadow(
-                      color: const Color(0xFF818CF8).withOpacity(0.2),
+                      color: const Color(0xFF818CF8).withValues(alpha: 0.2),
                       blurRadius: 10,
                     ),
                 ],
@@ -493,7 +493,7 @@ class _ProductHeroSection extends StatelessWidget {
             fontSize: 12,
             letterSpacing: 3,
             fontWeight: FontWeight.bold,
-            color: const Color(0xFF818CF8).withOpacity(0.8),
+            color: const Color(0xFF818CF8).withValues(alpha: 0.8),
           ),
         ),
         const SizedBox(height: 15),

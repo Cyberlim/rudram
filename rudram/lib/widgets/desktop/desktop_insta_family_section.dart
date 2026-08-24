@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import '../../utils/app_colors.dart';
 
 class DesktopInstaFamilySection extends StatefulWidget {
   const DesktopInstaFamilySection({super.key});
@@ -128,7 +127,7 @@ class _DesktopInstaFamilySectionState extends State<DesktopInstaFamilySection> {
           color: Theme.of(context).cardColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.08),
+              color: Colors.black.withValues(alpha: 0.08),
               blurRadius: 10,
               offset: Offset(0, 4),
             ),
@@ -166,7 +165,7 @@ class _InstaCardState extends State<_InstaCard> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(_isHovered ? 0.2 : 0.1),
+              color: Colors.black.withValues(alpha: _isHovered ? 0.2 : 0.1),
               blurRadius: _isHovered ? 20 : 10,
               offset: Offset(0, _isHovered ? 10 : 5),
             ),
@@ -198,8 +197,8 @@ class _InstaCardState extends State<_InstaCard> {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Colors.black.withOpacity(0.1),
-                        Colors.black.withOpacity(0.6),
+                        Colors.black.withValues(alpha: 0.1),
+                        Colors.black.withValues(alpha: 0.6),
                       ],
                     ),
                   ),
@@ -229,7 +228,7 @@ class _InstaCardState extends State<_InstaCard> {
                 right: 15,
                 child: Icon(
                   Icons.favorite_rounded,
-                  color: Theme.of(context).cardColor.withOpacity(0.9),
+                  color: Theme.of(context).cardColor.withValues(alpha: 0.9),
                   size: 24,
                 ),
               ),

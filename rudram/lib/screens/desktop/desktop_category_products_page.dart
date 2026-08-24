@@ -133,7 +133,7 @@ class _DesktopCategoryProductsPageState
                   ),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.4),
+                    Colors.black.withValues(alpha: 0.4),
                     BlendMode.darken,
                   ),
                 ),
@@ -351,7 +351,7 @@ class _CategoryProductCardState extends State<_CategoryProductCard> {
                       if (_isHovered)
                         Positioned.fill(
                           child: Container(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                           ),
                         ),
                     ],

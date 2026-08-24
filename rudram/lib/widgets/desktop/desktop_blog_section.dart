@@ -145,7 +145,7 @@ class _DesktopBlogSectionState extends State<DesktopBlogSection> {
           color: Theme.of(context).cardColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 5,
               offset: const Offset(0, 2),
             ),
@@ -182,7 +182,7 @@ class _BlogCardState extends State<_BlogCard> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(_isHovered ? 0.12 : 0.04),
+              color: Colors.black.withValues(alpha: _isHovered ? 0.12 : 0.04),
               blurRadius: _isHovered ? 30 : 15,
               offset: Offset(0, _isHovered ? 15 : 5),
             ),
@@ -230,7 +230,7 @@ class _BlogCardState extends State<_BlogCard> {
                 ),
                 if (_isHovered)
                   Positioned.fill(
-                    child: Container(color: Colors.black.withOpacity(0.1)),
+                    child: Container(color: Colors.black.withValues(alpha: 0.1)),
                   ),
               ],
             ),

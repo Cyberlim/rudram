@@ -75,7 +75,7 @@ class DesktopWatchAndShopSection extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryOrange.withOpacity(0.1),
+                      color: AppColors.primaryOrange.withValues(alpha: 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
@@ -184,7 +184,7 @@ class _DesktopVideoCardState extends State<_DesktopVideoCard> {
             color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(_isHovered ? 0.3 : 0.15),
+                color: Colors.black.withValues(alpha: _isHovered ? 0.3 : 0.15),
                 blurRadius: _isHovered ? 20 : 10,
                 offset: Offset(0, _isHovered ? 15 : 5),
               ),
@@ -209,7 +209,7 @@ class _DesktopVideoCardState extends State<_DesktopVideoCard> {
                       end: Alignment.bottomCenter,
                       colors: [
                         Colors.transparent,
-                        Colors.black.withOpacity(0.8),
+                        Colors.black.withValues(alpha: 0.8),
                       ],
                     ),
                   ),
@@ -221,7 +221,7 @@ class _DesktopVideoCardState extends State<_DesktopVideoCard> {
                     duration: const Duration(milliseconds: 300),
                     padding: EdgeInsets.all(_isHovered ? 16 : 12),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).cardColor.withOpacity(0.3),
+                      color: Theme.of(context).cardColor.withValues(alpha: 0.3),
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.white, width: 2),
                     ),
@@ -246,7 +246,7 @@ class _DesktopVideoCardState extends State<_DesktopVideoCard> {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.6),
+                          color: Colors.black.withValues(alpha: 0.6),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(

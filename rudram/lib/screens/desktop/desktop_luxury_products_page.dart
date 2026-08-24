@@ -67,7 +67,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
       'https://res.cloudinary.com/ds1wiqrdb/image/upload/v1766819231/bdce46f2878768991dd902d32d17224e_qmx8i1.png',
     ];
 
-    return Container(
+    return SizedBox(
       height: 750,
       width: double.infinity,
       child: Stack(
@@ -97,7 +97,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
-              Container(
+              SizedBox(
                 height: 450,
                 width: double.infinity,
                 child: CarouselSlider.builder(
@@ -122,7 +122,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
                         boxShadow: [
                           if (index == 2) // Center item glow
                             BoxShadow(
-                              color: goldColor.withOpacity(0.1),
+                              color: goldColor.withValues(alpha: 0.1),
                               blurRadius: 80,
                               spreadRadius: 10,
                             ),
@@ -190,7 +190,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
       height: height,
       decoration: BoxDecoration(
         border: Border.all(
-          color: goldColor.withOpacity(opacity),
+          color: goldColor.withValues(alpha: opacity),
           width: isBright ? 2 : 1,
         ),
         borderRadius: BorderRadius.only(
@@ -200,7 +200,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
         boxShadow: isBright
             ? [
                 BoxShadow(
-                  color: goldColor.withOpacity(0.05),
+                  color: goldColor.withValues(alpha: 0.05),
                   blurRadius: 20,
                   spreadRadius: 5,
                 ),
@@ -219,7 +219,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
           decoration: BoxDecoration(
             color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black,
             borderRadius: BorderRadius.circular(100),
-            border: Border.all(color: goldColor.withOpacity(0.2)),
+            border: Border.all(color: goldColor.withValues(alpha: 0.2)),
           ),
         ),
         const SizedBox(height: 5),
@@ -231,7 +231,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
             borderRadius: BorderRadius.circular(100),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.8),
+                color: Colors.black.withValues(alpha: 0.8),
                 blurRadius: 10,
                 offset: const Offset(0, 5),
               ),
@@ -249,7 +249,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Divider(color: goldColor.withOpacity(0.1)),
+          Divider(color: goldColor.withValues(alpha: 0.1)),
           Container(
             color: darkBg,
             padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -297,7 +297,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
       },
     ];
 
-    return Container(
+    return SizedBox(
       height: 850, // Increased height to prevent all overflow issues
       width: double.infinity,
       child: CarouselSlider.builder(
@@ -327,7 +327,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
                       decoration: BoxDecoration(
                         color: panelBg,
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.05),
+                          color: Colors.white.withValues(alpha: 0.05),
                         ),
                       ),
                       child: ClipRRect(
@@ -571,7 +571,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
             image: NetworkImage(url),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(0.3),
+              Colors.black.withValues(alpha: 0.3),
               BlendMode.darken,
             ),
           ),
@@ -636,7 +636,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
                 image: NetworkImage(banners[index]),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.4),
+                  Colors.black.withValues(alpha: 0.4),
                   BlendMode.darken,
                 ),
               ),
@@ -782,7 +782,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
           ),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.6),
+            Colors.black.withValues(alpha: 0.6),
             BlendMode.darken,
           ),
         ),
@@ -807,7 +807,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
           Text(
             "JOIN THE CIRCLE OF DEZEL FOR PRIVATE RELEASES",
             style: GoogleFonts.outfit(
-              color: goldColor.withOpacity(0.8),
+              color: goldColor.withValues(alpha: 0.8),
               letterSpacing: 2,
             ),
           ),
@@ -826,7 +826,7 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
           image: NetworkImage(url),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.3),
+            Colors.black.withValues(alpha: 0.3),
             BlendMode.darken,
           ),
         ),
@@ -857,8 +857,8 @@ class _DesktopLuxuryProductsPageState extends State<DesktopLuxuryProductsPage> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 18),
       decoration: BoxDecoration(
-        border: Border.all(color: goldColor.withOpacity(0.6)),
-        color: Colors.black.withOpacity(0.2),
+        border: Border.all(color: goldColor.withValues(alpha: 0.6)),
+        color: Colors.black.withValues(alpha: 0.2),
       ),
       child: Text(
         text,

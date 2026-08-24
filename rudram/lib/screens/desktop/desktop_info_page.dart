@@ -53,7 +53,7 @@ class DesktopInfoPage extends StatelessWidget {
         ),
       ),
       child: Container(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +169,7 @@ class DesktopInfoPage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
-                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 20, offset: const Offset(0, 10))],
+                boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 20, offset: const Offset(0, 10))],
               ),
               child: Icon(icon, size: 48, color: AppColors.primaryOrange),
             ),
@@ -231,7 +231,7 @@ class DesktopInfoPage extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: Image.network(imageUrl, height: 350, width: double.infinity, fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Container(height: 350, color: Colors.grey[200])),
+                errorBuilder: (_, _, _) => Container(height: 350, color: Colors.grey[200])),
           ),
           const SizedBox(height: 20),
           Text(name, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),

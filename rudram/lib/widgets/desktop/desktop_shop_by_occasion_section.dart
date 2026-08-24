@@ -203,7 +203,7 @@ class _DesktopShopByOccasionSectionState
           color: Theme.of(context).cardColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 5,
               offset: const Offset(0, 2),
             ),
@@ -242,7 +242,7 @@ class _OccasionCardState extends State<_OccasionCard> {
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(_isHovered ? 0.15 : 0.05),
+              color: Colors.black.withValues(alpha: _isHovered ? 0.15 : 0.05),
               blurRadius: _isHovered ? 30 : 15,
               offset: Offset(0, _isHovered ? 20 : 10),
             ),
@@ -274,7 +274,7 @@ class _OccasionCardState extends State<_OccasionCard> {
                     end: Alignment.bottomCenter,
                     colors: [
                       Colors.transparent,
-                      Colors.black.withOpacity(_isHovered ? 0.75 : 0.4),
+                      Colors.black.withValues(alpha: _isHovered ? 0.75 : 0.4),
                     ],
                   ),
                 ),
@@ -304,7 +304,7 @@ class _OccasionCardState extends State<_OccasionCard> {
                       child: Text(
                         widget.occasion['subtitle']!,
                         style: TextStyle(
-                          color: Theme.of(context).cardColor.withOpacity(0.9),
+                          color: Theme.of(context).cardColor.withValues(alpha: 0.9),
                           fontSize: 13,
                           height: 1.4,
                         ),
@@ -323,7 +323,7 @@ class _OccasionCardState extends State<_OccasionCard> {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {},
-                  splashColor: Colors.white.withOpacity(0.2),
+                  splashColor: Colors.white.withValues(alpha: 0.2),
                 ),
               ),
             ],

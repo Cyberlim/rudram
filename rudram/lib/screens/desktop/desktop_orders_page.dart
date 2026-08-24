@@ -98,7 +98,7 @@ class _DesktopOrdersPageState extends State<DesktopOrdersPage> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: isSelected
-                    ? Colors.white.withOpacity(0.2)
+                    ? Colors.white.withValues(alpha: 0.2)
                     : Colors.grey.shade100,
                 shape: BoxShape.circle,
               ),

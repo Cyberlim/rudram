@@ -39,7 +39,7 @@ class CelebrityProductsScreen extends StatelessWidget {
             ),
             flexibleSpace: FlexibleSpaceBar(
               background: Image.network(imageUrl, fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Container(color: Colors.grey[300]),
+                errorBuilder: (_, _, _) => Container(color: Colors.grey[300]),
               ),
               title: Text(
                 celebrityName,

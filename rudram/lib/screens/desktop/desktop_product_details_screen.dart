@@ -321,9 +321,9 @@ class _DesktopProductDetailsScreenState
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
-                                  const Color(0xFFA5D6A7).withOpacity(0.3),
-                                  const Color(0xFF81C784).withOpacity(0.1),
-                                  Colors.white.withOpacity(0.0),
+                                  const Color(0xFFA5D6A7).withValues(alpha: 0.3),
+                                  const Color(0xFF81C784).withValues(alpha: 0.1),
+                                  Colors.white.withValues(alpha: 0.0),
                                 ],
                               ),
                             ),
@@ -368,7 +368,7 @@ class _DesktopProductDetailsScreenState
                                 borderRadius: BorderRadius.circular(100),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
+                                    color: Colors.black.withValues(alpha: 0.1),
                                     blurRadius: 30,
                                     offset: const Offset(0, 15),
                                     spreadRadius: 5,
@@ -421,7 +421,7 @@ class _DesktopProductDetailsScreenState
                             child: Text(
                               "RUDRAM",
                               style: TextStyle(
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                                 fontSize: 24,
                                 letterSpacing: 4,
                                 fontWeight: FontWeight.w300,
@@ -448,11 +448,11 @@ class _DesktopProductDetailsScreenState
                           Container(
                             padding: const EdgeInsets.all(24),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.05),
+                                  color: Colors.black.withValues(alpha: 0.05),
                                   blurRadius: 20,
                                   offset: const Offset(0, 10),
                                 ),
@@ -548,7 +548,7 @@ class _DesktopProductDetailsScreenState
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.05),
+                                  color: Colors.black.withValues(alpha: 0.05),
                                   blurRadius: 20,
                                   offset: const Offset(0, 10),
                                 ),
@@ -564,7 +564,7 @@ class _DesktopProductDetailsScreenState
                                         .product
                                         .image, // Use same image or different variant
                                     fit: BoxFit.cover,
-                                    color: Colors.white.withOpacity(
+                                    color: Colors.white.withValues(alpha: 
                                       0.9,
                                     ), // Lighten it to look different
                                     colorBlendMode: BlendMode.modulate,
@@ -579,7 +579,7 @@ class _DesktopProductDetailsScreenState
                                       shape: BoxShape.circle,
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.black.withOpacity(0.2),
+                                          color: Colors.black.withValues(alpha: 0.2),
                                           blurRadius: 10,
                                           offset: const Offset(0, 5),
                                         ),
@@ -643,7 +643,7 @@ class _DesktopProductDetailsScreenState
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withValues(alpha: 0.3),
             blurRadius: size / 2,
             offset: Offset(size / 4, size / 4),
           ),
@@ -661,7 +661,7 @@ class _DesktopProductDetailsScreenState
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -754,7 +754,7 @@ class _DesktopProductDetailsScreenState
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color: Colors.black.withValues(alpha: 0.1),
                           blurRadius: 30,
                           offset: const Offset(0, 10),
                         ),
@@ -824,7 +824,7 @@ class _DesktopProductDetailsScreenState
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
@@ -853,15 +853,15 @@ class _BackgroundPainter extends CustomPainter {
     final centerY = size.height * 0.5 + (animationValue * 30 - 15);
 
     // Circle 1
-    paint.color = const Color(0xFFA5D6A7).withOpacity(0.05);
+    paint.color = const Color(0xFFA5D6A7).withValues(alpha: 0.05);
     canvas.drawCircle(Offset(centerX - 200, centerY - 100), 150, paint);
 
     // Circle 2
-    paint.color = const Color(0xFF81C784).withOpacity(0.05);
+    paint.color = const Color(0xFF81C784).withValues(alpha: 0.05);
     canvas.drawCircle(Offset(centerX + 200, centerY + 100), 200, paint);
 
     // Circle 3
-    paint.color = const Color(0xFF2C3E50).withOpacity(0.02);
+    paint.color = const Color(0xFF2C3E50).withValues(alpha: 0.02);
     canvas.drawCircle(
       Offset(size.width * 0.8, size.height * 0.2),
       100 + (animationValue * 20),
@@ -869,7 +869,7 @@ class _BackgroundPainter extends CustomPainter {
     );
 
     // Circle 4
-    paint.color = const Color(0xFF2C8A98).withOpacity(0.03);
+    paint.color = const Color(0xFF2C8A98).withValues(alpha: 0.03);
     canvas.drawCircle(
       Offset(size.width * 0.2, size.height * 0.8),
       120 - (animationValue * 20),

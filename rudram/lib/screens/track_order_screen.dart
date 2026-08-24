@@ -43,13 +43,13 @@ class TrackOrderScreen extends StatelessWidget {
                     gradient: LinearGradient(
                       colors: [
                         AppColors.primaryOrange,
-                        AppColors.primaryOrange.withOpacity(0.8),
+                        AppColors.primaryOrange.withValues(alpha: 0.8),
                       ],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primaryOrange.withOpacity(0.3),
+                        color: AppColors.primaryOrange.withValues(alpha: 0.3),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
@@ -158,7 +158,7 @@ class TrackOrderScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -191,7 +191,7 @@ class TrackOrderScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -202,7 +202,7 @@ class TrackOrderScreen extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: AppColors.primaryOrange.withOpacity(0.1),
+                          color: AppColors.primaryOrange.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: const Icon(
@@ -324,7 +324,7 @@ class TrackOrderScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -352,7 +352,7 @@ class TrackOrderScreen extends StatelessWidget {
                       boxShadow: isCompleted || isCurrent
                           ? [
                               BoxShadow(
-                                color: AppColors.primaryOrange.withOpacity(0.3),
+                                color: AppColors.primaryOrange.withValues(alpha: 0.3),
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
                               ),

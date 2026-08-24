@@ -72,16 +72,16 @@ class _DesktopMarqueeSectionState extends State<DesktopMarqueeSection> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF818CF8).withOpacity(0.08),
-            const Color(0xFFC084FC).withOpacity(0.08),
-            const Color(0xFF818CF8).withOpacity(0.08),
+            const Color(0xFF818CF8).withValues(alpha: 0.08),
+            const Color(0xFFC084FC).withValues(alpha: 0.08),
+            const Color(0xFF818CF8).withValues(alpha: 0.08),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         border: Border.symmetric(
           horizontal: BorderSide(
-            color: const Color(0xFF818CF8).withOpacity(0.2),
+            color: const Color(0xFF818CF8).withValues(alpha: 0.2),
             width: 1,
           ),
         ),
@@ -119,7 +119,7 @@ class _DesktopMarqueeSectionState extends State<DesktopMarqueeSection> {
         child: Text(
           text,
           style: GoogleFonts.playfairDisplay(
-            color: const Color(0xFF1E293B).withOpacity(0.8),
+            color: const Color(0xFF1E293B).withValues(alpha: 0.8),
             fontSize: 100, // Large and premium
             fontWeight: FontWeight.w900,
             letterSpacing: -2,

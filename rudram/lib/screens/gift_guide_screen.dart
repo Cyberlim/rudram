@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import '../utils/app_colors.dart';
 
 class GiftGuideScreen extends StatefulWidget {
   const GiftGuideScreen({super.key});

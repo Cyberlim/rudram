@@ -93,7 +93,7 @@ class _LuxuryNotificationPreferencesScreenState extends State<LuxuryNotification
       subtitle: Text(subtitle, style: const TextStyle(color: Colors.grey, fontSize: 12)),
       value: value,
       onChanged: onChanged,
-      activeColor: const Color(0xFFD4AF37),
+      activeThumbColor: const Color(0xFFD4AF37),
       contentPadding: EdgeInsets.zero,
     );
   }

@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../utils/app_colors.dart';
 import '../providers/cart_provider.dart';
 import '../providers/orders_provider.dart';
-import '../providers/auth_provider.dart';
 import '../services/firestore_service.dart';
 import 'order_success_screen.dart';
 
@@ -49,14 +48,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     super.initState();
     // Pre-select default address and payment method if available
     if (_uid != null) {
-      _firestoreService.getUserAddresses(_uid!).first.then((addresses) {
+      _firestoreService.getUserAddresses(_uid).first.then((addresses) {
         if (mounted && addresses.isNotEmpty) {
           setState(() {
             _selectedAddress = addresses.firstWhere((a) => a['isDefault'] == true, orElse: () => addresses.first);
           });
         }
       });
-      _firestoreService.getUserPaymentMethods(_uid!).first.then((methods) {
+      _firestoreService.getUserPaymentMethods(_uid).first.then((methods) {
         if (mounted && methods.isNotEmpty) {
           setState(() {
             _selectedPaymentMethod = methods.firstWhere((m) => m['isDefault'] == true, orElse: () => methods.first);
@@ -180,7 +179,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       const SizedBox(height: 16),
                       DropdownButtonFormField<String>(
                         decoration: _inputDecoration("State"),
-                        value: state,
+                        initialValue: state,
                         items: _indiaStates.keys.map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
                         onChanged: (val) {
                           if (val != null) {
@@ -198,7 +197,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           Expanded(
                             child: DropdownButtonFormField<String>(
                               decoration: _inputDecoration("District / City"),
-                              value: _indiaStates[state]!.contains(city) ? city : _indiaStates[state]!.first,
+                              initialValue: _indiaStates[state]!.contains(city) ? city : _indiaStates[state]!.first,
                               items: _indiaStates[state]!.map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
                               onChanged: (val) {
                                 if (val != null) {
@@ -245,7 +244,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         title: const Text("Set as Default"),
                         value: isDefault,
                         onChanged: (val) => setSheetState(() => isDefault = val),
-                        activeColor: AppColors.primaryOrange,
+                        activeThumbColor: AppColors.primaryOrange,
                         contentPadding: EdgeInsets.zero,
                       ),
                       const SizedBox(height: 24),
@@ -262,7 +261,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
                               if (_uid != null) {
-                                await _firestoreService.addAddress(_uid!, {
+                                await _firestoreService.addAddress(_uid, {
                                   'name': name,
                                   'street': street,
                                   'city': city,
@@ -330,7 +329,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                     const SizedBox(height: 24),
                     DropdownButtonFormField<String>(
-                      value: cardType,
+                      initialValue: cardType,
                       dropdownColor: Colors.white,
                       decoration: _inputDecoration("Card Type"),
                       items: ["Visa", "Mastercard", "American Express"].map((type) {
@@ -365,7 +364,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       title: const Text("Set as Default"),
                       value: isDefault,
                       onChanged: (val) => setSheetState(() => isDefault = val),
-                      activeColor: AppColors.primaryOrange,
+                      activeThumbColor: AppColors.primaryOrange,
                       contentPadding: EdgeInsets.zero,
                     ),
                     const SizedBox(height: 24),
@@ -382,7 +381,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             if (_uid != null) {
-                              await _firestoreService.addPaymentMethod(_uid!, {
+                              await _firestoreService.addPaymentMethod(_uid, {
                                 'type': cardType,
                                 'last4': cardNumber,
                                 'expiry': expiry,
@@ -458,7 +457,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -521,7 +520,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withValues(alpha: 0.05),
                         blurRadius: 10,
                         offset: const Offset(0, 2),
                       ),
@@ -583,7 +582,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       return const Text("Please sign in to view saved addresses.");
     }
     return StreamBuilder<List<Map<String, dynamic>>>(
-      stream: _firestoreService.getUserAddresses(_uid!),
+      stream: _firestoreService.getUserAddresses(_uid),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator(color: AppColors.primaryOrange));
@@ -666,7 +665,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       return const Text("Please sign in to view saved payment methods.");
     }
     return StreamBuilder<List<Map<String, dynamic>>>(
-      stream: _firestoreService.getUserPaymentMethods(_uid!),
+      stream: _firestoreService.getUserPaymentMethods(_uid),
       builder: (context, snapshot) {
         final methods = snapshot.data ?? [];
         
