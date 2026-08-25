@@ -77,10 +77,33 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                         child: Column(
                           children: [
-                            Text(
-                              cat['icon'] ?? '🏷️',
-                              style: const TextStyle(fontSize: 24),
-                            ),
+                            Builder(builder: (context) {
+                              String? getLocalImagePath(String categoryName) {
+                                switch (categoryName) {
+                                  case 'Earrings': return 'assets/images/categories/earrings.jpg';
+                                  case 'Temple Jewellery': return 'assets/images/categories/temple_jewellery.jpg';
+                                  case 'Accessories': return 'assets/images/categories/accessories_icon.jpg';
+                                  case 'Fashion': return 'assets/images/categories/fashion_icon.jpg';
+                                  case 'Bangles & Bracelets': return 'assets/images/categories/bangles.jpg';
+                                  case 'Necklaces': return 'assets/images/categories/necklaces.jpg';
+                                  case 'Rings': return 'assets/images/categories/rings.jpg';
+                                  case 'Mangalsutras': return 'assets/images/categories/mangalsutras.jpg';
+                                  case 'Pendants Chains': return 'assets/images/categories/pendants.jpg';
+                                  default: return null;
+                                }
+                              }
+                              final localImagePath = getLocalImagePath(cat['name'] ?? '');
+                              if (localImagePath != null) {
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(localImagePath, width: 40, height: 40, fit: BoxFit.cover),
+                                );
+                              }
+                              return Text(
+                                cat['icon'] ?? '🏷️',
+                                style: const TextStyle(fontSize: 24),
+                              );
+                            }),
                             const SizedBox(height: 8),
                             Text(
                               cat['name'] ?? '',

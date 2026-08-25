@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/wishlist_provider.dart';
 import '../providers/cart_provider.dart';
+import '../providers/auth_provider.dart';
+import 'auth/auth_screen.dart';
 
 class LuxuryWishlistScreen extends StatelessWidget {
   const LuxuryWishlistScreen({super.key});
@@ -108,6 +110,16 @@ class LuxuryWishlistScreen extends StatelessWidget {
                                 const SizedBox(height: 8),
                                 OutlinedButton(
                                   onPressed: () {
+                                    final auth = context.read<AppAuthProvider>();
+                                    if (!auth.isAuthenticated) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const AuthScreen(),
+                                        ),
+                                      );
+                                      return;
+                                    }
                                     context.read<CartProvider>().addItem(product);
                                     wishlist.removeItem(product);
                                     ScaffoldMessenger.of(context).showSnackBar(

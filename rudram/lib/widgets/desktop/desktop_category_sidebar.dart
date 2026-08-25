@@ -13,54 +13,49 @@ class _DesktopCategoriesSidebarState extends State<DesktopCategoriesSidebar> {
   // Duplicating the data for standalone desktop widget functioning
   final List<CategoryItem> categories = [
     CategoryItem(
-      title: "Electronic",
-      icon: Icons.desktop_windows_outlined,
+      title: "Necklaces",
+      imagePath: "assets/images/categories/necklaces.jpg",
       color: Colors.blue.shade50,
     ),
     CategoryItem(
-      title: "Games",
-      icon: Icons.sports_esports_outlined,
+      title: "Earrings",
+      imagePath: "assets/images/categories/earrings.jpg",
       color: Colors.green.shade50,
     ),
     CategoryItem(
-      title: "Fashion",
-      icon: Icons.checkroom_outlined,
+      title: "Rings",
+      imagePath: "assets/images/categories/rings.jpg",
       color: Colors.pink.shade50,
     ),
     CategoryItem(
-      title: "Pharmacy",
-      icon: Icons.medical_services_outlined,
+      title: "Bracelets",
+      imagePath: "assets/images/categories/bracelets.jpg",
       color: Colors.cyan.shade50,
     ),
     CategoryItem(
-      title: "Fast Food",
-      icon: Icons.restaurant_outlined,
+      title: "Bangles",
+      imagePath: "assets/images/categories/bangles.jpg",
       color: Colors.yellow.shade50,
     ),
     CategoryItem(
-      title: "Gadgets",
-      icon: Icons.phone_android_outlined,
+      title: "Pendants",
+      imagePath: "assets/images/categories/pendants.jpg",
       color: Colors.purple.shade50,
     ),
     CategoryItem(
-      title: "Accessories",
-      icon: Icons.headphones_outlined,
+      title: "Mangalsutras",
+      imagePath: "assets/images/categories/mangalsutras.jpg",
       color: Colors.orange.shade50,
     ),
     CategoryItem(
-      title: "Health",
-      icon: Icons.favorite_outline,
+      title: "Gold Coins",
+      imagePath: "assets/images/categories/coins.jpg",
       color: Colors.red.shade50,
     ),
     CategoryItem(
-      title: "Beauty",
-      icon: Icons.spa_outlined,
-      color: Colors.purple.shade50,
-    ),
-    CategoryItem(
-      title: "Drinks",
-      icon: Icons.local_cafe_outlined,
-      color: Colors.brown.shade50,
+      title: "Silver",
+      imagePath: "assets/images/categories/silver.jpg",
+      color: Colors.indigo.shade50,
     ),
   ];
 
@@ -120,7 +115,9 @@ class _DesktopCategoriesSidebarState extends State<DesktopCategoriesSidebar> {
                 color: category.color,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Icon(category.icon, size: 18, color: _getIconColor(index)),
+              child: category.imagePath != null
+                  ? Image.asset(category.imagePath!, width: 18, height: 18, fit: BoxFit.contain)
+                  : Icon(category.icon, size: 18, color: _getIconColor(index)),
             ),
             const SizedBox(width: 16),
             Expanded(

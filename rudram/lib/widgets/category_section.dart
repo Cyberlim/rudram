@@ -71,53 +71,81 @@ class _CategorySectionState extends State<CategorySection> {
             ],
           ),
         ),
-        
-        SizedBox(
-          height: 240, // Increased height to prevent overflow
-          child: StreamBuilder<List<Map<String, dynamic>>>(
-            stream: FirestoreService().getCategories(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              }
-              final categories = snapshot.data ?? [];
-              if (categories.isEmpty) {
-                return const Center(child: Text("No categories found", style: TextStyle(color: Colors.grey)));
-              }
+        StreamBuilder<List<Map<String, dynamic>>>(
+          stream: FirestoreService().getCategories(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: Padding(
+                padding: EdgeInsets.all(32.0),
+                child: CircularProgressIndicator(),
+              ));
+            }
+            final categories = snapshot.data ?? [];
+            if (categories.isEmpty) {
+              return const Center(child: Padding(
+                padding: EdgeInsets.all(32.0),
+                child: Text("No categories found", style: TextStyle(color: Colors.grey)),
+              ));
+            }
 
-              // Split categories into 2 rows for the horizontal scroll
-              final int itemsPerRow = (categories.length / 2).ceil();
-              final List<Map<String, dynamic>> firstRow = categories.take(itemsPerRow).toList();
-              final List<Map<String, dynamic>> secondRow = categories.skip(itemsPerRow).toList();
+            // Split categories into 2 rows for the horizontal scroll
+            final int itemsPerRow = (categories.length / 2).ceil();
+            final List<Map<String, dynamic>> firstRow = categories.take(itemsPerRow).toList();
+            final List<Map<String, dynamic>> secondRow = categories.skip(itemsPerRow).toList();
 
-              return ListView.builder(
+            final double screenWidth = MediaQuery.of(context).size.width;
+            final double itemWidth = (screenWidth - 32) / 4; // Exactly 4 columns in view
+
+            return SizedBox(
+              height: 240, // Height to fit 2 rows comfortably
+              child: ListView.builder(
                 controller: _scrollController,
                 physics: const ClampingScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 scrollDirection: Axis.horizontal,
                 itemCount: itemsPerRow,
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      _buildCategoryItem(firstRow[index], index),
-                      const SizedBox(height: 12),
-                      if (index < secondRow.length)
-                        _buildCategoryItem(secondRow[index], index + itemsPerRow),
-                    ],
+                  return SizedBox(
+                    width: itemWidth,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        _buildCategoryItem(firstRow[index], index),
+                        const SizedBox(height: 12),
+                        if (index < secondRow.length)
+                          _buildCategoryItem(secondRow[index], index + itemsPerRow),
+                      ],
+                    ),
                   );
                 },
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ],
     );
+  }
+
+  String? _getLocalImagePath(String categoryName) {
+    switch (categoryName) {
+      case 'Earrings': return 'assets/images/categories/earrings.jpg';
+      case 'Temple Jewellery': return 'assets/images/categories/temple_jewellery.jpg';
+      case 'Accessories': return 'assets/images/categories/accessories_icon.jpg';
+      case 'Fashion': return 'assets/images/categories/fashion_icon.jpg';
+      case 'Bangles & Bracelets': return 'assets/images/categories/bangles.jpg';
+      case 'Necklaces': return 'assets/images/categories/necklaces.jpg';
+      case 'Rings': return 'assets/images/categories/rings.jpg';
+      case 'Mangalsutras': return 'assets/images/categories/mangalsutras.jpg';
+      case 'Pendants Chains': return 'assets/images/categories/pendants.jpg';
+      default: return null;
+    }
   }
 
   Widget _buildCategoryItem(Map<String, dynamic> category, int globalIndex) {
     final title = category['name'] ?? 'Category';
     final icon = category['icon'] ?? '🏷️';
     final bgColor = _bgColors[globalIndex % _bgColors.length];
+    final localImagePath = _getLocalImagePath(title);
 
     return GestureDetector(
       onTap: () {
@@ -128,10 +156,7 @@ class _CategorySectionState extends State<CategorySection> {
           ),
         );
       },
-      child: Container(
-        width: 80,
-        margin: const EdgeInsets.only(right: 16),
-        child: Column(
+      child: Column(
           children: [
             Container(
               width: 64,
@@ -140,11 +165,16 @@ class _CategorySectionState extends State<CategorySection> {
                 color: bgColor,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Center(
-                child: Text(
-                  icon,
-                  style: const TextStyle(fontSize: 32),
-                ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: localImagePath != null
+                    ? Image.asset(localImagePath, fit: BoxFit.cover)
+                    : Center(
+                        child: Text(
+                          icon,
+                          style: const TextStyle(fontSize: 32),
+                        ),
+                      ),
               ),
             ),
             const SizedBox(height: 8),
@@ -165,7 +195,7 @@ class _CategorySectionState extends State<CategorySection> {
             ),
           ],
         ),
-      ),
     );
   }
 }
+

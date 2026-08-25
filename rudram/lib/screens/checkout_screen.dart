@@ -178,9 +178,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ),
                       const SizedBox(height: 16),
                       DropdownButtonFormField<String>(
+                        isExpanded: true,
                         decoration: _inputDecoration("State"),
                         initialValue: state,
-                        items: _indiaStates.keys.map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
+                        items: _indiaStates.keys.map((s) => DropdownMenuItem(value: s, child: Text(s, overflow: TextOverflow.ellipsis))).toList(),
                         onChanged: (val) {
                           if (val != null) {
                             setSheetState(() {
@@ -196,9 +197,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         children: [
                           Expanded(
                             child: DropdownButtonFormField<String>(
+                              isExpanded: true,
                               decoration: _inputDecoration("District / City"),
                               initialValue: _indiaStates[state]!.contains(city) ? city : _indiaStates[state]!.first,
-                              items: _indiaStates[state]!.map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
+                              items: _indiaStates[state]!.map((c) => DropdownMenuItem(value: c, child: Text(c, overflow: TextOverflow.ellipsis))).toList(),
                               onChanged: (val) {
                                 if (val != null) {
                                   setSheetState(() {

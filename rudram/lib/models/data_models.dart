@@ -25,12 +25,14 @@ class BubbleData {
 // ──────────────────────────────────────────────
 class CategoryItem {
   final String title;
-  final IconData icon;
+  final IconData? icon;
+  final String? imagePath;
   final Color color;
 
   const CategoryItem({
     required this.title,
-    required this.icon,
+    this.icon,
+    this.imagePath,
     required this.color,
   });
 }

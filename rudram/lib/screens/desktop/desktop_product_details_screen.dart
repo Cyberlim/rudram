@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../../models/data_models.dart';
 import '../../utils/app_colors.dart';
 import '../../providers/cart_provider.dart';
+import '../../providers/auth_provider.dart';
+import '../auth/auth_screen.dart';
 import '../../providers/rooms_provider.dart';
 import '../../widgets/cart_sidebar.dart';
 import '../../widgets/desktop/desktop_header.dart';
@@ -93,6 +95,16 @@ class _DesktopProductDetailsScreenState
   }
 
   void _addToCart() {
+    final auth = context.read<AppAuthProvider>();
+    if (!auth.isAuthenticated) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const AuthScreen(),
+        ),
+      );
+      return;
+    }
     final cart = Provider.of<CartProvider>(context, listen: false);
     cart.addItem(widget.product);
     ScaffoldMessenger.of(context).showSnackBar(

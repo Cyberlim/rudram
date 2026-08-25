@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
+import '../screens/auth/auth_screen.dart';
 import '../utils/app_colors.dart';
 import '../screens/watch_and_shop_screen.dart';
 import '../screens/celebrity_style_screen.dart';
@@ -60,12 +63,22 @@ class CustomBottomNavBar extends StatelessWidget {
               "View your shopping cart",
               () {
                 Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CartScreen(),
-                  ),
-                );
+                final auth = context.read<AppAuthProvider>();
+                if (!auth.isAuthenticated) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AuthScreen(),
+                    ),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CartScreen(),
+                    ),
+                  );
+                }
               },
             ),
             _buildMenuItem(

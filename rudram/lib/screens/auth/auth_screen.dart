@@ -405,7 +405,7 @@ class _AuthScreenState extends State<AuthScreen>
                 Center(
                   child: Container(
                     width: 500,
-                    padding: const EdgeInsets.all(48),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(24),
@@ -421,15 +421,15 @@ class _AuthScreenState extends State<AuthScreen>
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         _buildLogoSection(),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 16),
                         _buildTitleSection(),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 16),
                         _buildEmailAuthForm(),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 12),
                         _buildDivider(),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 12),
                         _buildGoogleButton(),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 12),
                         Text(
                           "Secure • Fast • Easy",
                           style: GoogleFonts.inter(
@@ -437,7 +437,7 @@ class _AuthScreenState extends State<AuthScreen>
                             fontSize: 12,
                           ),
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -459,9 +459,9 @@ class _AuthScreenState extends State<AuthScreen>
                             ),
                           ],
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 16),
                         _buildTerms(),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 12),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

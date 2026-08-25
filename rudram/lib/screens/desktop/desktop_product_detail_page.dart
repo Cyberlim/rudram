@@ -5,6 +5,8 @@ import '../../models/data_models.dart';
 import '../../widgets/desktop/desktop_header.dart';
 import '../../providers/rooms_provider.dart';
 import '../../providers/cart_provider.dart';
+import '../../providers/auth_provider.dart';
+import '../auth/auth_screen.dart';
 import 'desktop_checkout_page.dart';
 
 enum ProductViewMode { gallery, carousel, video }
@@ -24,6 +26,16 @@ class _DesktopProductDetailPageState extends State<DesktopProductDetailPage> {
   ProductViewMode _currentMode = ProductViewMode.gallery;
   bool _isCartOpen = false;
   void _addToCart(ProductItem product) {
+    final auth = context.read<AppAuthProvider>();
+    if (!auth.isAuthenticated) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const AuthScreen(),
+        ),
+      );
+      return;
+    }
     context.read<CartProvider>().addItem(product);
     setState(() {
       _isCartOpen = true;

@@ -4,6 +4,8 @@ import '../../utils/app_colors.dart';
 import 'package:provider/provider.dart';
 import '../../providers/wishlist_provider.dart';
 import '../../providers/cart_provider.dart';
+import '../../providers/auth_provider.dart';
+import '../../screens/auth/auth_screen.dart';
 import '../quick_view_dialog.dart';
 
 class DesktopProductCard extends StatefulWidget {
@@ -228,6 +230,16 @@ class _DesktopProductCardState extends State<DesktopProductCard> {
                           height: 40,
                           child: ElevatedButton(
                             onPressed: () {
+                              final auth = context.read<AppAuthProvider>();
+                              if (!auth.isAuthenticated) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AuthScreen(),
+                                  ),
+                                );
+                                return;
+                              }
                               context.read<CartProvider>().addItem(widget.product);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(

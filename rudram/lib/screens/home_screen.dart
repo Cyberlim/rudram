@@ -12,6 +12,9 @@ import 'celebrity_style_screen.dart';
 import 'desktop/desktop_home_screen.dart';
 import '../widgets/responsive_layout.dart';
 import '../utils/app_colors.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
+import 'auth/auth_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,6 +51,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onItemTapped(int index) {
+    if (index == 2 || index == 3) {
+      final auth = context.read<AppAuthProvider>();
+      if (!auth.isAuthenticated) {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const AuthScreen()),
+        );
+        return;
+      }
+    }
     setState(() {
       _selectedIndex = index;
     });

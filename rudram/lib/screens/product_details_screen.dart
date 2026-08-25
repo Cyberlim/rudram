@@ -5,8 +5,10 @@ import '../utils/app_colors.dart';
 import '../models/data_models.dart';
 import '../widgets/product_card.dart';
 import '../providers/cart_provider.dart';
+import '../providers/auth_provider.dart';
 import '../widgets/cart_sidebar.dart';
 import 'checkout_screen.dart';
+import 'auth/auth_screen.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   final ProductItem product;
@@ -344,48 +346,65 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Text(
-                              "₹${widget.product.currentPrice}",
-                              style: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primaryOrange,
+                        SizedBox(
+                          width: double.infinity,
+                          child: Wrap(
+                            alignment: WrapAlignment.spaceBetween,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            runSpacing: 8,
+                            children: [
+                              // Prices Group
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    "₹${widget.product.currentPrice}",
+                                    style: const TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.primaryOrange,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  Text(
+                                    "₹${widget.product.oldPrice}",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey[400],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                            const SizedBox(width: 12),
-                            Text(
-                              "₹${widget.product.oldPrice}",
-                              style: TextStyle(
-                                fontSize: 16,
-                                decoration: TextDecoration.lineThrough,
-                                color: Colors.grey[400],
+                              // Reviews Group
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 20,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  const Text(
+                                    "4.8",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    "(120 Reviews)",
+                                    style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                            const Spacer(),
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 20,
-                            ),
-                            const SizedBox(width: 4),
-                            const Text(
-                              "4.8",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              "(120 Reviews)",
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 24),
 
@@ -656,17 +675,20 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            const Row(
+                                            Row(
                                               children: [
-                                                Text(
-                                                  "Rudram Official",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 16,
+                                                const Flexible(
+                                                  child: Text(
+                                                    "Rudram Official",
+                                                    style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 16,
+                                                    ),
+                                                    overflow: TextOverflow.ellipsis,
                                                   ),
                                                 ),
-                                                SizedBox(width: 4),
-                                                Icon(
+                                                const SizedBox(width: 4),
+                                                const Icon(
                                                   Icons.verified,
                                                   size: 16,
                                                   color: Colors.blue,
@@ -1044,6 +1066,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {
+                        final auth = context.read<AppAuthProvider>();
+                        if (!auth.isAuthenticated) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AuthScreen(),
+                            ),
+                          );
+                          return;
+                        }
                         final cart = Provider.of<CartProvider>(
                           context,
                           listen: false,
@@ -1110,6 +1142,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
 
                         return ElevatedButton(
                           onPressed: () {
+                            final auth = context.read<AppAuthProvider>();
+                            if (!auth.isAuthenticated) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const AuthScreen(),
+                                ),
+                              );
+                              return;
+                            }
                             cart.addItem(widget.product);
 
                             // Show sidebar with cart
