@@ -215,15 +215,12 @@ class _Step1AccountState extends State<Step1Account> {
         children: [
           Text("Password must contain:", style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.green.shade800)),
           const SizedBox(height: 12),
-          Row(
+          Wrap(
+            spacing: 12,
+            runSpacing: 8,
             children: [
               _buildCheckItem("At least 8 characters"),
               _buildCheckItem("One number"),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
               _buildCheckItem("One uppercase letter"),
               _buildCheckItem("One special character"),
             ],
@@ -235,9 +232,10 @@ class _Step1AccountState extends State<Step1Account> {
 
   Widget _buildCheckItem(String text) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         const Icon(Icons.check_circle_outline, color: Colors.green, size: 16),
-        
+        const SizedBox(width: 4),
         Text(text, style: GoogleFonts.inter(color: Colors.green.shade700, fontSize: 12)),
       ],
     );

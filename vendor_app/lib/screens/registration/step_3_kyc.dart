@@ -1,3 +1,4 @@
+import '../../widgets/responsive_row.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -72,11 +73,10 @@ class Step3Kyc extends StatelessWidget {
             const SizedBox(height: 24),
             _buildTextField("GSTIN (If applicable)", "Enter 15-character GST Number", gstController, Icons.receipt_long_outlined),
             const SizedBox(height: 24),
-            Row(
+            ResponsiveRow(
               children: [
-                _buildFileUploadBox("Business Registration Certificate *", "Upload Certificate (PDF, JPG up to 5MB)", businessCertDoc, () => _pickDocument(onBusinessCertSelected)),
-                
-                _buildFileUploadBox("GST Certificate Upload", "Upload GST Cert (PDF, JPG up to 5MB)", gstCertDoc, () => _pickDocument(onGstCertSelected)),
+                Expanded(child: _buildFileUploadBox("Business Registration Certificate *", "Upload Certificate (PDF, JPG up to 5MB)", businessCertDoc, () => _pickDocument(onBusinessCertSelected))),
+                Expanded(child: _buildFileUploadBox("GST Certificate Upload", "Upload GST Cert (PDF, JPG up to 5MB)", gstCertDoc, () => _pickDocument(onGstCertSelected))),
               ],
             )
           ],
@@ -92,7 +92,7 @@ class Step3Kyc extends StatelessWidget {
             child: Row(
               children: [
                 const Icon(Icons.verified, color: Colors.green),
-                
+                const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     "Your information is securely encrypted and used only for verification purposes to ensure trust on JewelCraft.",

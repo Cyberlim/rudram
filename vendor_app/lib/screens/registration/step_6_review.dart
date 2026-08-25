@@ -50,7 +50,7 @@ class Step6Review extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.check_circle, color: Colors.green, size: 16),
-            
+            const SizedBox(width: 8),
             Text("KYC Documents Uploaded", style: GoogleFonts.inter(color: Colors.grey.shade700, fontSize: 14)),
           ],
         ),
@@ -58,7 +58,7 @@ class Step6Review extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.check_circle, color: Colors.green, size: 16),
-            
+            const SizedBox(width: 8),
             Text("Bank Details Provided", style: GoogleFonts.inter(color: Colors.grey.shade700, fontSize: 14)),
           ],
         ),

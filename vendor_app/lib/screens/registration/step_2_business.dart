@@ -177,11 +177,10 @@ class _Step2BusinessState extends State<Step2Business> {
           _buildTextField("Business Description *", "Tell us about your products", widget.descriptionController, Icons.description_outlined, maxLines: 3),
           const SizedBox(height: 24),
 
-          Row(
+          ResponsiveRow(
             children: [
-              _buildImageUploadBox("Store Logo", "JPG, PNG (1:1 aspect ratio)", widget.storeLogo, () => _pickImage(true)),
-              
-              _buildImageUploadBox("Store Banner", "JPG, PNG (16:9 aspect ratio)", widget.storeBanner, () => _pickImage(false)),
+              Expanded(child: _buildImageUploadBox("Store Logo", "JPG, PNG (1:1)", widget.storeLogo, () => _pickImage(true))),
+              Expanded(child: _buildImageUploadBox("Store Banner", "JPG, PNG (16:9)", widget.storeBanner, () => _pickImage(false))),
             ],
           ),
           const SizedBox(height: 24),
@@ -214,8 +213,10 @@ class _Step2BusinessState extends State<Step2Business> {
                   Row(
                     children: [
                       const Icon(Icons.star, color: Color(0xFFC09947)),
-                      
-                      Text("VIP Qualification Information", style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold, color: const Color(0xFFC09947))),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text("VIP Qualification Information", style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold, color: const Color(0xFFC09947))),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 8),

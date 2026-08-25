@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../services/firestore_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 enum AuthStatus { initial, loading, authenticated, unauthenticated, error }
 
@@ -45,12 +48,91 @@ class AppAuthProvider extends ChangeNotifier {
     }
   }
 
-  Future<bool> signUpWithEmail(String email, String password, String name) async {
+  Future<bool> initiateEmailOTPRegistration(String email, String password, String name) async {
     try {
       _status = AuthStatus.loading;
       _errorMessage = null;
       notifyListeners();
 
+      // Generate a random 6-digit OTP
+      final otp = (100000 + DateTime.now().microsecondsSinceEpoch % 900000).toString();
+      
+      if (kDebugMode) {
+        print('=============================================');
+        print('OTP VERIFICATION CODE GENERATED: $otp');
+        print('=============================================');
+      }
+      
+      // Save the OTP to Firestore (otp_verifications collection)
+      await FirebaseFirestore.instance.collection('otp_verifications').doc(email.toLowerCase()).set({
+        'otp': otp,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+
+      // Send via EmailJS
+      final serviceId = dotenv.env['EMAILJS_SERVICE_ID'];
+      final templateId = dotenv.env['EMAILJS_TEMPLATE_ID'];
+      final publicKey = dotenv.env['EMAILJS_PUBLIC_KEY'];
+      
+      if (serviceId != null && templateId != null && publicKey != null && serviceId.isNotEmpty) {
+        final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+        final response = await http.post(
+          url,
+          headers: {
+            'origin': 'http://localhost',
+            'Content-Type': 'application/json',
+          },
+          body: json.encode({
+            'service_id': serviceId,
+            'template_id': templateId,
+            'user_id': publicKey,
+            'template_params': {
+              'to_email': email,
+              'to_name': name,
+              'otp_code': otp,
+              'otp': otp,
+              'code': otp,
+              'message': otp,
+            }
+          }),
+        );
+        
+        if (response.statusCode != 200) {
+          print('EmailJS Error: ${response.body}');
+        }
+      } else {
+        print('EmailJS keys are missing from .env. The OTP was generated but no email was sent.');
+      }
+
+      _status = AuthStatus.initial; // reset so we don't stay loading
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _status = AuthStatus.error;
+      _errorMessage = 'Failed to initiate OTP: $e';
+      notifyListeners();
+      return false;
+    }
+  }
+
+  Future<bool> verifyEmailOTPAndRegister(String email, String password, String name, String enteredOtp) async {
+    try {
+      _status = AuthStatus.loading;
+      _errorMessage = null;
+      notifyListeners();
+
+      // Check the OTP from Firestore
+      final doc = await FirebaseFirestore.instance.collection('otp_verifications').doc(email.toLowerCase()).get();
+      if (!doc.exists) {
+        throw Exception("No OTP request found for this email.");
+      }
+      
+      final storedOtp = doc.data()?['otp'];
+      if (storedOtp != enteredOtp) {
+        throw Exception("Invalid OTP code.");
+      }
+
+      // If OTP matches, create the user
       final credential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -69,10 +151,18 @@ class AppAuthProvider extends ChangeNotifier {
         );
       }
 
+      // Clean up the OTP document
+      await FirebaseFirestore.instance.collection('otp_verifications').doc(email.toLowerCase()).delete();
+
       return true;
     } on FirebaseAuthException catch (e) {
       _status = AuthStatus.error;
       _errorMessage = _mapFirebaseError(e);
+      notifyListeners();
+      return false;
+    } catch (e) {
+      _status = AuthStatus.error;
+      _errorMessage = e.toString().replaceAll('Exception: ', '');
       notifyListeners();
       return false;
     }

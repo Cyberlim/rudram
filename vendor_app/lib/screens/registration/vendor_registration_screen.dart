@@ -496,9 +496,13 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
   }
 
   Widget _buildFormContainer(Widget child) {
-    return Container(
-      margin: const EdgeInsets.all(24),
-      padding: const EdgeInsets.all(32),
+    final isDesktop = MediaQuery.of(context).size.width > 600;
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 800),
+        child: Container(
+          margin: EdgeInsets.all(isDesktop ? 24 : 16),
+          padding: EdgeInsets.all(isDesktop ? 32 : 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -511,15 +515,13 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
           const SizedBox(height: 32),
           const Divider(color: Color(0xFFE2E8F0)),
           const SizedBox(height: 24),
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 16,
-            spacing: 16,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               if (_currentStep > 0)
                 OutlinedButton(
                   onPressed: _isSubmitting ? null : _goToPreviousStep,
-                  style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16)),
+                  style: OutlinedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: isDesktop ? 24 : 16, vertical: isDesktop ? 16 : 12)),
                   child: const Text("Back"),
                 )
               else
@@ -529,33 +531,31 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFC09947),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  padding: EdgeInsets.symmetric(horizontal: isDesktop ? 32 : 16, vertical: isDesktop ? 16 : 12),
                 ),
                 child: _isSubmitting 
                     ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
-                    : Text(_currentStep == 5 ? "Submit Registration" : "Save & Continue ->"),
+                    : Text(_currentStep == 5 ? "Submit" : "Next ->"),
               ),
             ],
           )
         ],
       ),
-    );
+    )));
   }
 
   Widget _buildHeader() {
+    final isDesktop = MediaQuery.of(context).size.width > 600;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+      padding: EdgeInsets.symmetric(horizontal: isDesktop ? 32 : 16, vertical: 16),
       decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(bottom: BorderSide(color: Color(0xFFE2E8F0))),
       ),
-      child: Wrap(
-        alignment: WrapAlignment.spaceBetween,
-        runSpacing: 16,
-        spacing: 16,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 width: 40,
@@ -566,7 +566,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                 ),
                 child: const Center(child: Icon(Icons.diamond, color: Color(0xFFC09947))),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -576,16 +576,21 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
               ),
             ],
           ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("Already have an account? ", style: GoogleFonts.inter(color: Colors.grey.shade600)),
-              InkWell(
-                onTap: () => Navigator.pop(context),
-                child: Text("Login", style: GoogleFonts.inter(color: const Color(0xFFC09947), fontWeight: FontWeight.bold)),
-              ),
-            ],
-          )
+          if (isDesktop)
+            Row(
+              children: [
+                Text("Already have an account? ", style: GoogleFonts.inter(color: Colors.grey.shade600)),
+                InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Text("Login", style: GoogleFonts.inter(color: const Color(0xFFC09947), fontWeight: FontWeight.bold)),
+                ),
+              ],
+            )
+          else
+            InkWell(
+              onTap: () => Navigator.pop(context),
+              child: Text("Login", style: GoogleFonts.inter(color: const Color(0xFFC09947), fontWeight: FontWeight.bold, fontSize: 16)),
+            ),
         ],
       ),
     );
@@ -729,10 +734,51 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
 
   Widget _buildHorizontalStepper() {
     return Container(
-      height: 80,
+      height: 90,
+      width: double.infinity,
       color: Colors.white,
-      child: Center(
-        child: Text("Stepper for mobile (Todo)"),
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 6,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        itemBuilder: (context, index) {
+          bool isActive = _currentStep == index;
+          bool isCompleted = _currentStep > index;
+          return Container(
+            margin: const EdgeInsets.only(right: 24),
+            child: Row(
+              children: [
+                Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: isActive ? const Color(0xFFC09947) : (isCompleted ? Colors.green : Colors.grey.shade200),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: isCompleted
+                        ? const Icon(Icons.check, size: 16, color: Colors.white)
+                        : Text("${index + 1}", style: GoogleFonts.inter(color: isActive ? Colors.white : Colors.grey.shade600, fontWeight: FontWeight.bold)),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(_stepTitles[index], style: GoogleFonts.inter(fontSize: 13, fontWeight: isActive ? FontWeight.bold : FontWeight.w600, color: isActive ? Colors.black : Colors.grey.shade700)),
+                    Text(_stepSubtitles[index], style: GoogleFonts.inter(fontSize: 10, color: Colors.grey.shade500)),
+                  ],
+                ),
+                if (index < 5) ...[
+                  const SizedBox(width: 16),
+                  Container(width: 30, height: 1, color: Colors.grey.shade300),
+                ]
+              ],
+            ),
+          );
+        },
       ),
     );
   }

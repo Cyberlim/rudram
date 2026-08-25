@@ -146,10 +146,7 @@ class LuxuryProfileScreen extends StatelessWidget {
                 onTap: () async {
                   await context.read<AppAuthProvider>().signOut();
                   if (context.mounted) {
-                    Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (_) => const HomeScreen()),
-                      (route) => false,
-                    );
+                    Navigator.of(context).popUntil((route) => route.isFirst);
                   }
                 },
                 child: const Text(

@@ -20,7 +20,7 @@ class VendorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rudram Vendor Platform',
+      title: 'Rudram Vendor',
       debugShowCheckedModeBanner: false,
       scrollBehavior: const MaterialScrollBehavior().copyWith(
         physics: const ClampingScrollPhysics(),
