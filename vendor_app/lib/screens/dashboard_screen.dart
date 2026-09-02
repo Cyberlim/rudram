@@ -298,22 +298,38 @@ class SalesOverviewCard extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text("Total Sales", style: TextStyle(color: Colors.grey, fontSize: 12)),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text("₹2,45,680", style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold)),
-              const SizedBox(width: 12),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 4),
-                child: Row(
-                  children: [
-                    Icon(Icons.arrow_upward, color: Colors.green, size: 12),
-                    SizedBox(width: 4),
-                    Text("18.6% vs last year", style: TextStyle(color: Colors.green, fontSize: 12, fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              )
-            ],
+          StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection('orders').snapshots(),
+            builder: (context, snapshot) {
+              double totalRevenue = 0;
+              if (snapshot.hasData) {
+                for (var doc in snapshot.data!.docs) {
+                  var data = doc.data() as Map<String, dynamic>;
+                  if (data['status'] == 'Delivered') {
+                    totalRevenue += (data['totalAmount'] ?? 0);
+                  }
+                }
+              }
+              return Wrap(
+                crossAxisAlignment: WrapCrossAlignment.end,
+                spacing: 12,
+                runSpacing: 4,
+                children: [
+                  Text("₹${totalRevenue.toStringAsFixed(0)}", style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold)),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 4),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.arrow_upward, color: Colors.green, size: 12),
+                        SizedBox(width: 4),
+                        Text("Live Data", style: TextStyle(color: Colors.green, fontSize: 12, fontWeight: FontWeight.w600)),
+                      ],
+                    ),
+                  )
+                ],
+              );
+            },
           ),
           const SizedBox(height: 32),
           Expanded(
@@ -706,46 +722,112 @@ class EarningsOverviewCard extends StatelessWidget {
           const SizedBox(height: 24),
           const Text("Available Balance", style: TextStyle(color: Colors.grey, fontSize: 12)),
           const SizedBox(height: 4),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("₹1,25,430", style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold)),
-              OutlinedButton(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.purple.shade200),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                ),
-                child: Text("Withdraw", style: TextStyle(color: Colors.purple.shade700, fontWeight: FontWeight.bold, fontSize: 12)),
-              )
-            ],
-          ),
-          const SizedBox(height: 24),
-          const Text("This Month", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("Total Sales", style: TextStyle(color: Colors.grey, fontSize: 13)),
-              Text("₹2,45,680", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("Platform Fee", style: TextStyle(color: Colors.grey, fontSize: 13)),
-              Text("-₹12,284", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 13)),
-            ],
-          ),
-          const Padding(padding: EdgeInsets.symmetric(vertical: 8), child: Divider(color: Color(0xFFF0F0F0))),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("Net Earnings", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-              Text("₹2,33,396", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 13)),
-            ],
+          StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection('orders').snapshots(),
+            builder: (context, snapshot) {
+              double totalSales = 0;
+              if (snapshot.hasData) {
+                for (var doc in snapshot.data!.docs) {
+                  var data = doc.data() as Map<String, dynamic>;
+                  if (data['status'] == 'Delivered') {
+                    totalSales += (data['totalAmount'] ?? 0);
+                  }
+                }
+              }
+              
+              double platformFee = totalSales * 0.05; // 5% fee assumption
+              double netEarnings = totalSales - platformFee;
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("₹${netEarnings.toStringAsFixed(0)}", style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold)),
+                      OutlinedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text("Request Withdrawal"),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Text("Enter the amount you wish to withdraw to your linked bank account.", style: TextStyle(fontSize: 14)),
+                                    const SizedBox(height: 16),
+                                    TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                        prefixText: "₹ ",
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                                        hintText: "Amount",
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(context),
+                                    child: const Text("Cancel"),
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(content: Text("Withdrawal request submitted successfully.")),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.purple.shade700,
+                                      foregroundColor: Colors.white,
+                                    ),
+                                    child: const Text("Confirm"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Colors.purple.shade200),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        ),
+                        child: Text("Withdraw", style: TextStyle(color: Colors.purple.shade700, fontWeight: FontWeight.bold, fontSize: 12)),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  const Text("This Month", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("Total Sales", style: TextStyle(color: Colors.grey, fontSize: 13)),
+                      Text("₹${totalSales.toStringAsFixed(0)}", style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("Platform Fee", style: TextStyle(color: Colors.grey, fontSize: 13)),
+                      Text("-₹${platformFee.toStringAsFixed(0)}", style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 13)),
+                    ],
+                  ),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 8), child: Divider(color: Color(0xFFF0F0F0))),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("Net Earnings", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                      Text("₹${netEarnings.toStringAsFixed(0)}", style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 13)),
+                    ],
+                  ),
+                ],
+              );
+            }
           ),
         ],
       ),
@@ -780,19 +862,46 @@ class StorePerformanceCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          GridView.count(
-            shrinkWrap: true,
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            childAspectRatio: 1.3,
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              _buildMetric(Icons.people_outline, "Visitors", "18,452", "+ 21.3%", const Color(0xFFF3E8FF), const Color(0xFF9333EA)),
-              _buildMetric(Icons.visibility_outlined, "Product Views", "32,145", "+ 14.7%", const Color(0xFFECFDF5), const Color(0xFF10B981)),
-              _buildMetric(Icons.shopping_cart_outlined, "Add to Cart", "5,632", "+ 11.9%", const Color(0xFFF3E8FF), const Color(0xFF9333EA)),
-              _buildMetric(Icons.trending_up, "Conversion Rate", "8.94%", "+ 9.6%", const Color(0xFFFFF7ED), const Color(0xFFEA580C)),
-            ],
+          StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection('orders').snapshots(),
+            builder: (context, snapshot) {
+              int totalOrders = 0;
+              double totalRevenue = 0;
+              Set<String> uniqueCustomers = {};
+              int cancelledOrders = 0;
+
+              if (snapshot.hasData) {
+                totalOrders = snapshot.data!.docs.length;
+                for (var doc in snapshot.data!.docs) {
+                  var data = doc.data() as Map<String, dynamic>;
+                  if (data['status'] == 'Delivered') {
+                    totalRevenue += (data['totalAmount'] ?? 0);
+                  }
+                  if (data['status'] == 'Cancelled') {
+                    cancelledOrders += 1;
+                  }
+                  final customerName = (data['deliveryDetails'] as Map<String, dynamic>?)?['name'] ?? '';
+                  uniqueCustomers.add(customerName);
+                }
+              }
+
+              double aov = totalOrders > 0 ? totalRevenue / totalOrders : 0;
+
+              return GridView.count(
+                shrinkWrap: true,
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 1.3,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  _buildMetric(Icons.shopping_bag_outlined, "Total Orders", totalOrders.toString(), "Live", const Color(0xFFF3E8FF), const Color(0xFF9333EA)),
+                  _buildMetric(Icons.account_balance_wallet_outlined, "Avg Order Value", "₹${aov.toStringAsFixed(0)}", "Live", const Color(0xFFECFDF5), const Color(0xFF10B981)),
+                  _buildMetric(Icons.people_outline, "Unique Customers", uniqueCustomers.length.toString(), "Live", const Color(0xFFF3E8FF), const Color(0xFF9333EA)),
+                  _buildMetric(Icons.cancel_outlined, "Cancelled Orders", cancelledOrders.toString(), "Live", const Color(0xFFFFF7ED), const Color(0xFFEA580C)),
+                ],
+              );
+            }
           )
         ],
       ),

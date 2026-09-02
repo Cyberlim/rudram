@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import '../screens/shop_screen.dart';
+import '../screens/desktop/desktop_info_page.dart';
+import '../screens/profile/help_support_screen.dart';
 class FooterSection extends StatelessWidget {
   const FooterSection({super.key});
 
@@ -28,21 +30,21 @@ class FooterSection extends StatelessWidget {
           const SizedBox(height: 24),
           Row(
             children: [
-              _buildFooterLink("About Us"),
+              _buildFooterLink(context, "About Us"),
               const SizedBox(width: 24),
-              _buildFooterLink("Contact"),
+              _buildFooterLink(context, "Contact"),
               const SizedBox(width: 24),
-              _buildFooterLink("Stores"),
+              _buildFooterLink(context, "Stores"),
             ],
           ),
           const SizedBox(height: 16),
           Row(
             children: [
-              _buildFooterLink("Terms"),
+              _buildFooterLink(context, "Terms"),
               const SizedBox(width: 24),
-              _buildFooterLink("Privacy"),
+              _buildFooterLink(context, "Privacy"),
               const SizedBox(width: 24),
-              _buildFooterLink("Returns"),
+              _buildFooterLink(context, "Returns"),
             ],
           ),
           const SizedBox(height: 32),
@@ -71,13 +73,28 @@ class FooterSection extends StatelessWidget {
     );
   }
 
-  Widget _buildFooterLink(String text) {
-    return Text(
-      text,
-      style: const TextStyle(
-        color: Colors.white70,
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
+  Widget _buildFooterLink(BuildContext context, String text) {
+    return InkWell(
+      onTap: () {
+        if (text == 'Contact') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const HelpSupportScreen()));
+        } else if (text == 'Stores') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const ShopScreen()));
+        } else if (text == 'About Us') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const DesktopInfoPage()));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('$text is coming soon!')),
+          );
+        }
+      },
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white70,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }

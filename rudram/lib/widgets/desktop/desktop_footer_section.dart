@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-
+import '../../screens/desktop/desktop_shop_page.dart';
+import '../../screens/blog_screen.dart';
+import '../../screens/orders_screen.dart';
+import '../../screens/desktop/desktop_info_page.dart';
+import '../../screens/profile/help_support_screen.dart';
 class DesktopFooterSection extends StatelessWidget {
   const DesktopFooterSection({super.key});
 
@@ -71,7 +75,7 @@ class DesktopFooterSection extends StatelessWidget {
 
               // Links Columns
               Expanded(
-                child: _buildFooterColumn('Shop', [
+                child: _buildFooterColumn(context, 'Shop', [
                   'New Arrivals',
                   'Best Sellers',
                   'Rings',
@@ -80,7 +84,7 @@ class DesktopFooterSection extends StatelessWidget {
                 ]),
               ),
               Expanded(
-                child: _buildFooterColumn('About', [
+                child: _buildFooterColumn(context, 'About', [
                   'Our Story',
                   'Craftsmanship',
                   'Designers',
@@ -89,7 +93,7 @@ class DesktopFooterSection extends StatelessWidget {
                 ]),
               ),
               Expanded(
-                child: _buildFooterColumn('Support', [
+                child: _buildFooterColumn(context, 'Support', [
                   'Contact Us',
                   'FAQs',
                   'Shipping policy',
@@ -132,13 +136,13 @@ class DesktopFooterSection extends StatelessWidget {
     );
   }
 
-  Widget _buildFooterColumn(String title, List<String> items) {
+  Widget _buildFooterColumn(BuildContext context, String title, List<String> items) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title.toUpperCase(),
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 14,
             fontWeight: FontWeight.bold,
@@ -150,7 +154,9 @@ class DesktopFooterSection extends StatelessWidget {
           (item) => Padding(
             padding: const EdgeInsets.only(bottom: 16),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                _handleFooterNavigation(context, item);
+              },
               child: Text(
                 item,
                 style: const TextStyle(color: Colors.grey, fontSize: 15),
@@ -160,6 +166,40 @@ class DesktopFooterSection extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _handleFooterNavigation(BuildContext context, String item) {
+    switch (item) {
+      case 'New Arrivals':
+      case 'Best Sellers':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const DesktopShopPage()));
+        break;
+      case 'Rings':
+      case 'Necklaces':
+      case 'Earrings':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DesktopShopPage(initialSearchQuery: item)));
+        break;
+      case 'Our Story':
+      case 'Craftsmanship':
+      case 'Designers':
+      case 'Sustainability':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const DesktopInfoPage()));
+        break;
+      case 'Blog':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const BlogScreen()));
+        break;
+      case 'Contact Us':
+      case 'FAQs':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const HelpSupportScreen()));
+        break;
+      case 'Track Order':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const OrdersScreen()));
+        break;
+      default:
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('$item is coming soon!')),
+        );
+    }
   }
 
   Widget _buildSocialIcon(BuildContext context, IconData icon) {

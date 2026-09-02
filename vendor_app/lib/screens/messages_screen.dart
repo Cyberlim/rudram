@@ -70,7 +70,10 @@ class MessagesScreen extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(name, style: TextStyle(fontWeight: isUnread ? FontWeight.bold : FontWeight.w600)),
+            Expanded(
+              child: Text(name, style: TextStyle(fontWeight: isUnread ? FontWeight.bold : FontWeight.w600), overflow: TextOverflow.ellipsis),
+            ),
+            const SizedBox(width: 8),
             Text(time, style: const TextStyle(color: Colors.grey, fontSize: 12)),
           ],
         ),
